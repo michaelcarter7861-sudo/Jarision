@@ -1,10 +1,7 @@
 import json
 import os
+import random
 import re
-import subprocess
-import sys
-import threading
-import time
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import urllib.request
 import urllib.error
@@ -12,7 +9,6 @@ import urllib.error
 RAW_CONFIG = os.environ.get("FREEAPI_CONFIG_JSON", "").strip()
 PORT = int(os.environ.get("PORT", "3001"))
 
-# Provider Endpoint Registry (OpenAI-Compatible & Native Endpoints)
 PROVIDER_ENDPOINTS = {
     "groq": ("https://api.groq.com/openai/v1/chat/completions", "llama-3.3-70b-versatile"),
     "mistral": ("https://api.mistral.ai/v1/chat/completions", "codestral-latest"),
@@ -24,7 +20,7 @@ PROVIDER_ENDPOINTS = {
     "siliconflow": ("https://api.siliconflow.cn/v1/chat/completions", "Qwen/Qwen2.5-72B-Instruct"),
     "hyperbolic": ("https://api.hyperbolic.xyz/v1/chat/completions", "meta-llama/Llama-3.3-70B-Instruct"),
     "fireworks": ("https://api.fireworks.ai/inference/v1/chat/completions", "accounts/fireworks/models/llama-v3p3-70b-instruct"),
-    "together": ("https://api.together.xyz/v1/chat/completions", "meta-llama/Llama-3.3-70B-Instruct-Turbo"),
+    "together": ("https://api.together.xyz/v1/chat/completions", "meta-llama/Llama-3.3-70B-Instruct-Turbo-Free"),
     "deepinfra": ("https://api.deepinfra.com/v1/openai/chat/completions", "meta-llama/Llama-3.3-70B-Instruct"),
     "novita": ("https://api.novita.ai/v3/openai/chat/completions", "meta-llama/llama-3.3-70b-instruct"),
     "scaleway": ("https://api.scaleway.ai/v1/chat/completions", "llama-3.3-70b-instruct"),
@@ -32,7 +28,7 @@ PROVIDER_ENDPOINTS = {
     "glhf": ("https://glhf.chat/api/openai/v1/chat/completions", "hf:meta-llama/Llama-3.3-70B-Instruct"),
     "kluster": ("https://api.kluster.ai/v1/chat/completions", "klusterai/Meta-Llama-3.3-70B-Instruct-Turbo"),
     "nebius": ("https://api.studio.nebius.ai/v1/chat/completions", "meta-llama/Llama-3.3-70B-Instruct"),
-    "featherless": ("https://api.featherless.ai/v1/chat/completions", "meta-llama/Llama-3.3-70B-Instruct"),
+    "featherless": ("https://api.featherless.ai/v1/chat/completions", "meta-llama/Meta-Llama-3.1-70B-Instruct"),
     "arliai": ("https://api.arliai.com/v1/chat/completions", "Mistral-Nemo-12B-Instruct-2407"),
     "zhipu_glm": ("https://open.bigmodel.cn/api/paas/v4/chat/completions", "glm-4-flash"),
     "moonshot": ("https://api.moonshot.cn/v1/chat/completions", "moonshot-v1-8k"),
@@ -40,21 +36,35 @@ PROVIDER_ENDPOINTS = {
 }
 
 def sanitize_and_parse_json(raw_str):
-    """Automatically fixes trailing commas or minor syntax edits when user deletes providers."""
     if not raw_str:
         return {"providers": {}}
-    # Remove trailing commas before } or ]
     cleaned = re.sub(r",\s*([}\]])", r"\1", raw_str)
     try:
         return json.loads(cleaned)
-    except Exception as e:
-        print(f"[JSON-HEALER] Warning: Standard parse failed ({e}). Attempting key extraction...")
+    except Exception:
         providers = {}
         pattern = re.compile(r'"([a-zA-Z0-9_]+)"\s*:\s*\{[^}]*?"apiKeys"\s*:\s*\[\s*"([^"]+)"', re.DOTALL)
         for match in pattern.finditer(raw_str):
             p_name, p_key = match.group(1), match.group(2)
             providers[p_name] = {"enabled": True, "apiKeys": [p_key]}
         return {"providers": providers}
+
+def extract_and_validate_json_object(raw_text):
+    """Strips markdown fences, repairs trailing commas, and verifies valid JSON before returning."""
+    if not raw_text or not raw_text.strip():
+        raise ValueError("Empty LLM response text.")
+    text = raw_text.strip()
+    # Strip ```json ... ``` fences if present
+    text = re.sub(r"^```(?:json)?\s*", "", text, flags=re.IGNORECASE)
+    text = re.sub(r"\s*```$", "", text)
+    start = text.find("{")
+    end = text.rfind("}")
+    if start == -1 or end == -1 or end <= start:
+        raise ValueError("No complete JSON object '{...}' found in response.")
+    candidate = text[start:end + 1]
+    candidate = re.sub(r",\s*([}\]])", r"\1", candidate)
+    parsed = json.loads(candidate, strict=False)
+    return json.dumps(parsed)
 
 CONFIG = sanitize_and_parse_json(RAW_CONFIG)
 
@@ -64,23 +74,16 @@ def get_active_keys():
     for p_name, p_data in providers.items():
         if not isinstance(p_data, dict) or not p_data.get("enabled", True):
             continue
-        keys = p_data.get("apiKeys", [])
-        for k in keys:
+        for k in p_data.get("apiKeys", []):
             if k and not k.startswith("YAHAN_") and not k.startswith("PASTE_"):
                 active.append((p_name.lower(), k.strip()))
-    # Also inject built-in GITHUB_TOKEN if available
     gh_tok = os.environ.get("GITHUB_TOKEN", "").strip()
     if gh_tok:
         active.append(("github_models", gh_tok))
     return active
 
 ACTIVE_POOL = get_active_keys()
-print(f"[FREELLMAPI-ROUTER] Loaded {len(ACTIVE_POOL)} active API keys across providers: {[p[0] for p in ACTIVE_POOL]}")
-
-# Save cleaned config for tashfeenahmed/freellmapi repo
-os.makedirs("config/freellmapi", exist_ok=True)
-with open("config/freellmapi/runtime_config.json", "w", encoding="utf-8") as f:
-    json.dump(CONFIG, f, indent=2)
+print(f"[FREELLMAPI-ROUTER] Loaded {len(ACTIVE_POOL)} active API keys across providers.")
 
 def call_google_gemini(api_key, messages):
     system_text = ""
@@ -91,12 +94,16 @@ def call_google_gemini(api_key, messages):
         else:
             user_text += m.get("content", "") + "\n"
 
-    for model in ["gemini-2.5-pro", "gemini-2.5-flash", "gemini-2.0-flash"]:
+    for model in ["gemini-2.5-flash", "gemini-2.5-pro", "gemini-2.0-flash"]:
         url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={api_key}"
         payload = {
             "systemInstruction": {"parts": [{"text": system_text}]},
             "contents": [{"parts": [{"text": user_text}]}],
-            "generationConfig": {"temperature": 0.15, "responseMimeType": "application/json"}
+            "generationConfig": {
+                "temperature": 0.15,
+                "maxOutputTokens": 8192,
+                "responseMimeType": "application/json"
+            }
         }
         req = urllib.request.Request(
             url, data=json.dumps(payload).encode("utf-8"),
@@ -105,11 +112,12 @@ def call_google_gemini(api_key, messages):
         try:
             with urllib.request.urlopen(req, timeout=180) as resp:
                 data = json.loads(resp.read().decode("utf-8"))
-                text = data["candidates"][0]["content"]["parts"][0]["text"]
-                return text, f"google_ai_studio/{model}"
+                raw_text = data["candidates"][0]["content"]["parts"][0]["text"]
+                valid_json_str = extract_and_validate_json_object(raw_text)
+                return valid_json_str, f"google_ai_studio/{model}"
         except Exception as e:
             print(f"[FAILOVER] Google {model} skipped: {e}")
-    raise RuntimeError("All Google AI Studio models exhausted for this key.")
+    raise RuntimeError("All Google AI Studio models exhausted or returned invalid JSON.")
 
 def call_cohere(api_key, messages):
     url = "https://api.cohere.com/v2/chat"
@@ -126,7 +134,8 @@ def call_cohere(api_key, messages):
     )
     with urllib.request.urlopen(req, timeout=180) as resp:
         data = json.loads(resp.read().decode("utf-8"))
-        return data["message"]["content"][0]["text"], "cohere/command-r-plus"
+        raw_text = data["message"]["content"][0]["text"]
+        return extract_and_validate_json_object(raw_text), "cohere/command-r-plus"
 
 def call_openai_provider(provider_name, api_key, messages):
     if provider_name not in PROVIDER_ENDPOINTS:
@@ -136,6 +145,7 @@ def call_openai_provider(provider_name, api_key, messages):
         "model": default_model,
         "messages": messages,
         "temperature": 0.15,
+        "max_tokens": 4096,
         "response_format": {"type": "json_object"}
     }
     req = urllib.request.Request(
@@ -144,24 +154,21 @@ def call_openai_provider(provider_name, api_key, messages):
             "Content-Type": "application/json",
             "Authorization": f"Bearer {api_key}",
             "HTTP-Referer": "https://github.com/michaelcarter7861-sudo/Jarision",
-            "User-Agent": "FreeLLMAPI-Jarision/1.0"
+            "User-Agent": "FreeLLMAPI-Jarision/2.0"
         },
         method="POST"
     )
     with urllib.request.urlopen(req, timeout=180) as resp:
         data = json.loads(resp.read().decode("utf-8"))
-        return data["choices"][0]["message"]["content"], f"{provider_name}/{default_model}"
+        raw_text = data["choices"][0]["message"]["content"]
+        return extract_and_validate_json_object(raw_text), f"{provider_name}/{default_model}"
 
 class FreeLLMAPIGatewayHandler(BaseHTTPRequestHandler):
     def do_GET(self):
-        if self.path.startswith("/v1/models") or self.path.startswith("/health"):
-            self.send_response(200)
-            self.send_header("Content-Type", "application/json")
-            self.end_headers()
-            self.wfile.write(json.dumps({"status": "ok", "active_keys": len(ACTIVE_POOL)}).encode("utf-8"))
-        else:
-            self.send_response(404)
-            self.end_headers()
+        self.send_response(200)
+        self.send_header("Content-Type", "application/json")
+        self.end_headers()
+        self.wfile.write(json.dumps({"status": "ok", "active_keys": len(ACTIVE_POOL)}).encode("utf-8"))
 
     def do_POST(self):
         length = int(self.headers.get("Content-Length", 0))
@@ -178,7 +185,7 @@ class FreeLLMAPIGatewayHandler(BaseHTTPRequestHandler):
                 else:
                     reply_text, used_model = call_openai_provider(provider_name, api_key, messages)
 
-                print(f"[FREELLMAPI] SUCCESS via {used_model}!")
+                print(f"[FREELLMAPI] VALIDATED JSON SUCCESS via {used_model}!")
                 response_payload = {
                     "id": "freellmapi-chatcmpl",
                     "object": "chat.completion",
@@ -191,7 +198,7 @@ class FreeLLMAPIGatewayHandler(BaseHTTPRequestHandler):
                 self.wfile.write(json.dumps(response_payload).encode("utf-8"))
                 return
             except Exception as err:
-                print(f"[FREELLMAPI-FAILOVER] {provider_name} failed ({err}) -> switching to next provider immediately!")
+                print(f"[FREELLMAPI-FAILOVER] {provider_name} failed ({err}) -> switching to next provider...")
 
         self.send_response(502)
         self.end_headers()
