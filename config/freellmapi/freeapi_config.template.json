@@ -1,0 +1,24 @@
+{
+  "server": {
+    "port": 3001,
+    "masterKey": "freellmapi-jarision-master-key",
+    "routingStrategy": "smart-failover",
+    "autoRetryOn429": true,
+    "maxFailoverHops": 10
+  },
+  "providers": {
+    "google_ai_studio": { "enabled": true, "apiKeys": ["PASTE_GEMINI_KEY_1", "PASTE_GEMINI_KEY_2"] },
+    "groq": { "enabled": true, "apiKeys": ["PASTE_GROQ_KEY_1"] },
+    "mistral": { "enabled": true, "apiKeys": ["PASTE_MISTRAL_CODESTRAL_KEY"] },
+    "cerebras": { "enabled": true, "apiKeys": ["PASTE_CEREBRAS_KEY"] },
+    "openrouter": { "enabled": true, "apiKeys": ["PASTE_OPENROUTER_KEY"] },
+    "cohere": { "enabled": true, "apiKeys": ["PASTE_COHERE_KEY"] },
+    "github_models": { "enabled": true, "apiKeys": ["PASTE_GITHUB_PAT_KEY"] },
+    "sambanova": { "enabled": true, "apiKeys": ["PASTE_SAMBANOVA_KEY"] },
+    "nvidia_nim": { "enabled": true, "apiKeys": ["PASTE_NVIDIA_KEY"] },
+    "cloudflare": { "enabled": true, "apiKeys": ["PASTE_CLOUDFLARE_KEY"] },
+    "huggingface": { "enabled": true, "apiKeys": ["PASTE_HF_KEY"] },
+    "siliconflow": { "enabled": true, "apiKeys": ["PASTE_SILICONFLOW_KEY"] },
+    "zhipu_glm": { "enabled": true, "apiKeys": ["PASTE_ZHIPU_KEY"] }
+  }
+}

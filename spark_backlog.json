@@ -1,0 +1,191 @@
+{
+  "project": "Jarision - Heavy Project I.G.I. Tactical Stealth FPS (14-Mission 800MB Edition)",
+  "router": "tashfeenahmed/freellmapi (http://localhost:3001/v1)",
+  "integratedRepositories": [
+    "tashfeenahmed/freellmapi",
+    "Aider-AI/aider",
+    "crewAIInc/crewAI",
+    "heaven-hm/project-igi-toolkit",
+    "heaven-hm/project-igi-editor",
+    "heaven-hm/project-igi-internals-data",
+    "heaven-hm/project-igi-research",
+    "Unity-Technologies/skills",
+    "obra/superpowers",
+    "addyosmani/agent-skills",
+    "Common-ka/ai-agent-unity-rules",
+    "atteneder/glTFast",
+    "Cysharp/UniTask",
+    "Unity-Technologies/NavMeshComponents",
+    "game-ci/unity-builder"
+  ],
+  "tasks": [
+    {
+      "id": "SYS_01_ANYA_HANDLER_AND_TERMINALS",
+      "status": "pending",
+      "outputPath": "Assets/Scripts/Core/OutsideHandlerAndBaseIntelSystem.cs",
+      "testPath": "Assets/Tests/HandlerIntelTests.cs",
+      "prompt": "Using heaven-hm/project-igi-internals-data and Unity-Technologies/skills, write OutsideHandlerAndBaseIntelSystem.cs in namespace 'TacticalStealthCore'. Implement: 1) Live top-left Outside Handler ('Anya') radio comms box with voice clip queue and satellite thermal warnings, 2) 15-second Electronic Radio Jammer skill, and 3) Inside-Compound Green-Screen Terminals & Officer Clipboards that unlock underground wireframe maps, CCTV feeds, turret switches, and door codes."
+    },
+    {
+      "id": "SYS_02_IGI_SATELLITE_MAP_COMPUTER",
+      "status": "pending",
+      "outputPath": "Assets/Scripts/UI/IGISatelliteMapComputer.cs",
+      "testPath": "Assets/Tests/SatelliteMapTests.cs",
+      "prompt": "Using heaven-hm/project-igi-toolkit and project-igi-editor schemas, write IGISatelliteMapComputer.cs in 'TacticalStealthCore'. Replicate and upgrade Project I.G.I. 1's full-screen Satellite Map PDA: 3-tier topographical zoom (2km valley to compound), Interior Wireframe Blueprint mode, live CCTV/Searchlight vision cones (Green/Yellow/Red/Gray), moving thermal guard/vehicle blips, numbered objective markers, and power-grid cable tracing."
+    },
+    {
+      "id": "SYS_03_GLTFAST_800MB_MISSION_STREAMER",
+      "status": "pending",
+      "outputPath": "Assets/Scripts/Core/HeavyMissionAssetStreamer.cs",
+      "testPath": "Assets/Tests/AssetStreamerTests.cs",
+      "prompt": "Using atteneder/glTFast, Cysharp/UniTask, and heaven-hm/project-igi-toolkit JSON model schemas, write HeavyMissionAssetStreamer.cs in 'TacticalStealthCore'. Stream 500MB-800MB 3-sector missions (.glb compounds, interiors, watchtowers, audio banks) while keeping active RAM under 160MB on 3GB RAM Android devices."
+    },
+    {
+      "id": "SYS_04_CAMERAS_POWERGRID_TURRETS",
+      "status": "pending",
+      "outputPath": "Assets/Scripts/Sensors/SecurityGridAndCameras.cs",
+      "testPath": "Assets/Tests/SecurityGridTests.cs",
+      "prompt": "Write SecurityGridAndCameras.cs in 'TacticalStealthCore'. Implement IGI-style sweeping CCTV cameras with 2.0s lock-on warning beeps, transformer fuse boxes that cut power to linked cameras/searchlights/electric gates, and automated bunker turrets controlled by green-screen security terminals."
+    },
+    {
+      "id": "SYS_05_HEAVY_ARSENAL_AND_BALLISTICS",
+      "status": "pending",
+      "outputPath": "Assets/Scripts/Combat/HeavyArsenalAndBallistics.cs",
+      "testPath": "Assets/Tests/HeavyBallisticsTests.cs",
+      "prompt": "Using heaven-hm/project-igi-toolkit weapon IDs, write HeavyArsenalAndBallistics.cs in 'TacticalStealthCore'. Include Combat Knife, Glock 17, MP5SD3 Silenced, Dragunov SVD, PSG-1, AK-47, M16A2+M203, Spas-12, Minimi SAW, LAW-80 Rocket, C4, Proximity Mines, Flashbangs, and Thermal Binoculars with sniper breath sway, wood/sheet-metal bullet penetration, and acoustic shot masking."
+    },
+    {
+      "id": "SYS_06_LADDERS_ZIPLINES_ELEVATORS_DRAG",
+      "status": "pending",
+      "outputPath": "Assets/Scripts/Player/TacticalTraversalAndCorpseDrag.cs",
+      "testPath": "Assets/Tests/TraversalTests.cs",
+      "prompt": "Write TacticalTraversalAndCorpseDrag.cs in 'TacticalStealthCore' implementing fast-slide IGI ladders, rooftop ziplines, multi-floor freight elevators (connecting Sector 2 surface compounds to Sector 3 underground bunkers), chain-link fence wire-cutters, lockpicking, corner leaning, and corpse dragging."
+    },
+    {
+      "id": "BLENDER_01_COMPOUND_ARCHITECTURE",
+      "status": "pending",
+      "outputPath": "tools/blender/build_igi_compounds_pack.py",
+      "testPath": "",
+      "prompt": "Write a headless Blender Python (bpy) script that builds and exports authentic Project I.G.I. Cold-War .glb 3D models into Assets/StreamingAssets/Models/: 1) Concrete Perimeter Wall & Electric Sliding Gate, 2) Radar Dome Building, 3) 2-Story Barracks with Interior Rooms, 4) Underground Elevator Bunker Entrance, 5) Security Camera & Transformer Box, and 6) Green-Screen Military Terminal Desk."
+    },
+    {
+      "id": "BLENDER_02_WEAPONS_AND_VEHICLES",
+      "status": "pending",
+      "outputPath": "tools/blender/build_igi_weapons_and_vehicles.py",
+      "testPath": "",
+      "prompt": "Write a headless Blender Python (bpy) script that builds and exports low-poly UV-mapped .glb 3D models into Assets/StreamingAssets/Models/ for: MP5SD3 Silenced SMG, Dragunov SVD Sniper, AK-47, LAW-80, Thermal Binoculars, Military Supply Truck, and Armored Train Car."
+    },
+    {
+      "id": "MISSION_01_AIRFIELD_INFILTRATION",
+      "status": "pending",
+      "outputPath": "Assets/StreamingAssets/Missions/M01_AirfieldInfiltration.json",
+      "testPath": "",
+      "prompt": "Using heaven-hm/project-igi-research Mission 1 data, generate the complete 3-Sector Heavy JSON blueprint for Mission 01: Airfield Infiltration (Military Airbase & Radar Outpost). Include outer valley sniper ridge, surface airfield, ATC tower terminal hack, Anya live radio intel, transformer power grid, and supply truck escape."
+    },
+    {
+      "id": "MISSION_02_SAM_BASE",
+      "status": "pending",
+      "outputPath": "Assets/StreamingAssets/Missions/M02_SamBase.json",
+      "testPath": "",
+      "prompt": "Using heaven-hm/project-igi-research Mission 2 data, generate the complete 3-Sector Heavy JSON blueprint for Mission 02: SAM Base (Mountain Gorge & Surface-to-Air Missile Bunkers) with watchtowers, suspension bridges, 3 SAM launchers to destroy with C4, underground ordnance bunker, and Anya satellite warnings."
+    },
+    {
+      "id": "MISSION_03_MILITARY_AIRBASE_DEFENSE",
+      "status": "pending",
+      "outputPath": "Assets/StreamingAssets/Missions/M03_MilitaryAirbaseDefense.json",
+      "testPath": "",
+      "prompt": "Using heaven-hm/project-igi-research Mission 3 data, generate the complete 3-Sector Heavy JSON blueprint for Mission 03: Military Airbase Defense (Supply Depot, Hangars & Helipad) with high-noise helicopter rotor masking zones, hangar CCTV networks, avionics cipher theft, and chopper extraction."
+    },
+    {
+      "id": "MISSION_04_GOD_OLIVE_DEFENSE",
+      "status": "pending",
+      "outputPath": "Assets/StreamingAssets/Missions/M04_GodOliveDefense.json",
+      "testPath": "",
+      "prompt": "Using heaven-hm/project-igi-research Mission 4 data, generate the complete 3-Sector Heavy JSON blueprint for Mission 04: GOD - Guard Olive Defense (Twin Fortified Compounds linked by a mountain cable car) with underground backup generators, Anya regional relay jamming sequence, and sniper overwatch."
+    },
+    {
+      "id": "MISSION_05_RADAR_BASE",
+      "status": "pending",
+      "outputPath": "Assets/StreamingAssets/Missions/M05_RadarBase.json",
+      "testPath": "",
+      "prompt": "Using heaven-hm/project-igi-research Mission 5 data, generate the complete 3-Sector Heavy JSON blueprint for Mission 05: Radar Base (High-Altitude Alpine Early-Warning Station) with snow acoustic zones, 3 radar domes, Anya satellite virus upload, and zipline exfiltration."
+    },
+    {
+      "id": "MISSION_06_GET_PRIBOI",
+      "status": "pending",
+      "outputPath": "Assets/StreamingAssets/Missions/M06_GetPriboi.json",
+      "testPath": "",
+      "prompt": "Using heaven-hm/project-igi-research Mission 6 data, generate the complete 3-Sector Heavy JSON blueprint for Mission 06: Get Priboi (High-Security Detention Fortress) featuring mandatory zero-alarm outer infiltration, warden terminal hack, cellblock breach, and escorting Priboi to the extraction helipad."
+    },
+    {
+      "id": "MISSION_07_BORDER_CROSSING",
+      "status": "pending",
+      "outputPath": "Assets/StreamingAssets/Missions/M07_BorderCrossing.json",
+      "testPath": "",
+      "prompt": "Using heaven-hm/project-igi-research Mission 7 data, generate the complete 3-Sector Heavy JSON blueprint for Mission 07: Border Crossing (Fortified Mountain Pass & Armored Garrison) with sweeping searchlights, patrolling BTR/tank units, LAW-80 rocket stashes, command post wiretap, and border escape."
+    },
+    {
+      "id": "MISSION_08_RESUPPLY",
+      "status": "pending",
+      "outputPath": "Assets/StreamingAssets/Missions/M08_ReSupply.json",
+      "testPath": "",
+      "prompt": "Using heaven-hm/project-igi-research Mission 8 data, generate the complete 3-Sector Heavy JSON blueprint for Mission 08: Re-Supply (Night Munitions Depot & Logistics Hub) featuring weapon stash recovery, underground ammo dump sabotage, CCTV transformer grid cuts, and convoy hijacking."
+    },
+    {
+      "id": "MISSION_09_MISSILE_TRAIN_YARD",
+      "status": "pending",
+      "outputPath": "Assets/StreamingAssets/Missions/M09_MissileTrainYard.json",
+      "testPath": "",
+      "prompt": "Using heaven-hm/project-igi-research Mission 9 data, generate the complete 3-Sector Heavy JSON blueprint for Mission 09: Missile Train Yard (Snowy Armored Train Logistics Depot) featuring crane sniper towers, control tower track-switching terminals, acoustic locomotive masking, and boarding the moving train."
+    },
+    {
+      "id": "MISSION_10_DEFEND_PRIBOI",
+      "status": "pending",
+      "outputPath": "Assets/StreamingAssets/Missions/M10_DefendPriboi.json",
+      "testPath": "",
+      "prompt": "Using heaven-hm/project-igi-research Mission 10 data, generate the complete 3-Sector Heavy JSON blueprint for Mission 10: Defend Priboi (Ambush Village & Mountain Valley) featuring long-range Dragunov overwatch, QRF troop waves, Anya live thermal callouts, and defending the extraction zone."
+    },
+    {
+      "id": "MISSION_11_EAGLES_NEST_I",
+      "status": "pending",
+      "outputPath": "Assets/StreamingAssets/Missions/M11_EaglesNest1.json",
+      "testPath": "",
+      "prompt": "Using heaven-hm/project-igi-research Mission 11 data, generate the complete 3-Sector Heavy JSON blueprint for Mission 11: Eagle's Nest I (Cliffside Cable Car & Outer Mountain Fortress) featuring vertical sniper towers, cable car terminal sabotage, high-voltage fence grids, and upper gondola boarding."
+    },
+    {
+      "id": "MISSION_12_EAGLES_NEST_II",
+      "status": "pending",
+      "outputPath": "Assets/StreamingAssets/Missions/M12_EaglesNest2.json",
+      "testPath": "",
+      "prompt": "Using heaven-hm/project-igi-research Mission 12 data, generate the complete 3-Sector Heavy JSON blueprint for Mission 12: Eagle's Nest II (Inner Citadel & Underground Command Bunker) featuring 3 redundant security mainframes, Anya cipher decryption timer, automated bunker turrets, and cliffside zipline escape."
+    },
+    {
+      "id": "MISSION_13_NUCLEAR_INFILTRATION",
+      "status": "pending",
+      "outputPath": "Assets/StreamingAssets/Missions/M13_NuclearInfiltration.json",
+      "testPath": "",
+      "prompt": "Using heaven-hm/project-igi-research Mission 13 data, generate the complete 3-Sector Heavy JSON blueprint for Mission 13: Nuclear Infiltration (3-Floor Subterranean Plutonium Facility) featuring deep freight elevators, thermal CCTV sectors, luring biometric officers via power anomalies, and warhead core access."
+    },
+    {
+      "id": "MISSION_14_FINDING_THE_BOMB",
+      "status": "pending",
+      "outputPath": "Assets/StreamingAssets/Missions/M14_FindingTheBomb.json",
+      "testPath": "",
+      "prompt": "Using heaven-hm/project-igi-research Mission 14 data, generate the complete 3-Sector Heavy JSON blueprint for Mission 14: Finding the Bomb (Final Underground ICBM Silo & Reactor Complex) combining outer garrison defenses, subterranean reactor halls, Anya warhead defusal sequence, and final boss showdown."
+    },
+    {
+      "id": "BUILD_01_GAME_CI_ANDROID_BUILDER",
+      "status": "pending",
+      "outputPath": "Assets/Editor/JarisionHeadlessAndroidBuilder.cs",
+      "testPath": "",
+      "prompt": "Write JarisionHeadlessAndroidBuilder.cs for game-ci/unity-builder that compiles the 500MB-800MB 14-Mission Android APK + StreamingAssets/AssetBundles targeting Android 9.0 (API 28+), IL2CPP, ARM64, with glTFast and UniTask memory streaming."
+    },
+    {
+      "id": "GROWTH_01_14_MISSION_LAUNCH_BIBLE",
+      "status": "pending",
+      "outputPath": "Marketing/Jarision_14_Mission_Growth_Bible.md",
+      "testPath": "",
+      "prompt": "Write the complete Launch & ASO Marketing Bible for Jarision's 14-Mission Campaign: Google Play Store metadata targeting 'Project IGI 14 missions tactical stealth FPS', Meta Carousel & Reels ad scripts, and 14 AI video trailer prompts (Wan2.1/Kling/Hailuo) covering Missions M01 to M14."
+    }
+  ]
+}

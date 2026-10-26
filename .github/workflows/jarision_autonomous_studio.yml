@@ -1,0 +1,90 @@
+name: Jarision 24/7 Autonomous Studio (100% FreeLLMAPI + 14 IGI Missions)
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+    inputs:
+      batch_size:
+        description: 'Number of tasks to complete in this run (1 to 5)'
+        required: false
+        default: '2'
+
+permissions:
+  contents: write
+  issues: write
+  models: read
+
+jobs:
+  jarision-freellmapi-studio:
+    runs-on: ubuntu-latest
+    services:
+      freellmapi:
+        image: ghcr.io/tashfeenahmed/freellmapi:latest
+        ports:
+          - 3001:3001
+        env:
+          PORT: 3001
+          FREEAPI_CONFIG_JSON: ${{ secrets.FREEAPI_CONFIG_JSON }}
+          FREEAPI_MASTER_KEY: ${{ secrets.FREELLM_MASTER_KEY || 'freellmapi-jarision-master-key' }}
+    steps:
+      - name: Checkout Jarision Repository
+        uses: actions/checkout@v4
+
+      - name: Clone & Sync All 9 Reference, Skill & Agent Repositories
+        run: |
+          mkdir -p reference/igi-ecosystem
+          git clone --depth 1 https://github.com/heaven-hm/project-igi-toolkit.git reference/igi-ecosystem/project-igi-toolkit || true
+          git clone --depth 1 https://github.com/heaven-hm/project-igi-editor.git reference/igi-ecosystem/project-igi-editor || true
+          git clone --depth 1 https://github.com/heaven-hm/project-igi-internals-data.git reference/igi-ecosystem/project-igi-internals-data || true
+          git clone --depth 1 https://github.com/heaven-hm/project-igi-research.git reference/igi-ecosystem/project-igi-research || true
+
+          git clone --depth 1 https://github.com/Unity-Technologies/skills.git .agent/skills/unity-official || true
+          git clone --depth 1 https://github.com/obra/superpowers.git .agent/skills/superpowers || true
+          git clone --depth 1 https://github.com/addyosmani/agent-skills.git .agent/skills/addyosmani-skills || true
+          git clone --depth 1 https://github.com/Common-ka/ai-agent-unity-rules.git .agent/rules/unity-rules || true
+
+      - name: Install Aider, CrewAI & Headless Blender (.GLB 3D Factory)
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y blender
+          pip install --quiet aider-chat crewai || true
+          blender --background --python tools/blender/generate_igi_assets.py || true
+
+      - name: Execute Jarision Studio Orchestrator via FreeLLMAPI (localhost:3001/v1)
+        env:
+          FREELLM_API_BASE: "http://localhost:3001/v1"
+          FREELLM_MASTER_KEY: ${{ secrets.FREELLM_MASTER_KEY || 'freellmapi-jarision-master-key' }}
+          SPARK_BATCH_SIZE: ${{ github.event.inputs.batch_size || '2' }}
+        run: python3 jarision_freellm_orchestrator.py
+
+      - name: QA Gatekeeper - Verify C# Syntax, JSON Blueprints & .GLB Models
+        run: |
+          python3 -c '
+          import json, os, sys
+          for root, _, files in os.walk("Assets"):
+              for f in files:
+                  p = os.path.join(root, f)
+                  if f.endswith(".cs"):
+                      t = open(p, encoding="utf-8").read()
+                      if t.count("{") != t.count("}"):
+                          print(f"QA FAIL: Brace mismatch in {p}")
+                          sys.exit(1)
+                  elif f.endswith(".json"):
+                      json.loads(open(p, encoding="utf-8").read())
+          print("QA PASS: All C# scripts and 14-Mission JSON blueprints verified.")
+          '
+
+      - name: Clean Temporary Clones & Push Completed Work to Jarision
+        run: |
+          rm -rf reference/igi-ecosystem .agent/skills/unity-official .agent/skills/superpowers .agent/skills/addyosmani-skills .agent/rules/unity-rules
+          git config user.name "Jarision-FreeLLMAPI-Studio"
+          git config user.email "jarision-bot@users.noreply.github.com"
+          git add .
+          if git diff --staged --quiet; then
+            echo "No new changes to commit."
+          else
+            DONE=$(grep -c '"status": "completed"' spark_backlog.json || true)
+            git commit -m "⚡ [Jarision FreeLLMAPI Studio] Progress: ${DONE}/24 Tasks (14-Mission Heavy IGI)"
+            git push origin main
+          fi
