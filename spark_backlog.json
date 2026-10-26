@@ -21,35 +21,35 @@
   "tasks": [
     {
       "id": "SYS_01_ANYA_HANDLER_AND_TERMINALS",
-      "status": "pending",
+      "status": "completed",
       "outputPath": "Assets/Scripts/Core/OutsideHandlerAndBaseIntelSystem.cs",
       "testPath": "Assets/Tests/HandlerIntelTests.cs",
       "prompt": "Using heaven-hm/project-igi-internals-data and Unity-Technologies/skills, write OutsideHandlerAndBaseIntelSystem.cs in namespace 'TacticalStealthCore'. Implement: 1) Live top-left Outside Handler ('Anya') radio comms box with voice clip queue and satellite thermal warnings, 2) 15-second Electronic Radio Jammer skill, and 3) Inside-Compound Green-Screen Terminals & Officer Clipboards that unlock underground wireframe maps, CCTV feeds, turret switches, and door codes."
     },
     {
       "id": "SYS_02_IGI_SATELLITE_MAP_COMPUTER",
-      "status": "pending",
+      "status": "completed",
       "outputPath": "Assets/Scripts/UI/IGISatelliteMapComputer.cs",
       "testPath": "Assets/Tests/SatelliteMapTests.cs",
       "prompt": "Using heaven-hm/project-igi-toolkit and project-igi-editor schemas, write IGISatelliteMapComputer.cs in 'TacticalStealthCore'. Replicate and upgrade Project I.G.I. 1's full-screen Satellite Map PDA: 3-tier topographical zoom (2km valley to compound), Interior Wireframe Blueprint mode, live CCTV/Searchlight vision cones (Green/Yellow/Red/Gray), moving thermal guard/vehicle blips, numbered objective markers, and power-grid cable tracing."
     },
     {
       "id": "SYS_03_GLTFAST_800MB_MISSION_STREAMER",
-      "status": "pending",
+      "status": "completed",
       "outputPath": "Assets/Scripts/Core/HeavyMissionAssetStreamer.cs",
       "testPath": "Assets/Tests/AssetStreamerTests.cs",
       "prompt": "Using atteneder/glTFast, Cysharp/UniTask, and heaven-hm/project-igi-toolkit JSON model schemas, write HeavyMissionAssetStreamer.cs in 'TacticalStealthCore'. Stream 500MB-800MB 3-sector missions (.glb compounds, interiors, watchtowers, audio banks) while keeping active RAM under 160MB on 3GB RAM Android devices."
     },
     {
       "id": "SYS_04_CAMERAS_POWERGRID_TURRETS",
-      "status": "pending",
+      "status": "completed",
       "outputPath": "Assets/Scripts/Sensors/SecurityGridAndCameras.cs",
       "testPath": "Assets/Tests/SecurityGridTests.cs",
       "prompt": "Write SecurityGridAndCameras.cs in 'TacticalStealthCore'. Implement IGI-style sweeping CCTV cameras with 2.0s lock-on warning beeps, transformer fuse boxes that cut power to linked cameras/searchlights/electric gates, and automated bunker turrets controlled by green-screen security terminals."
     },
     {
       "id": "SYS_05_HEAVY_ARSENAL_AND_BALLISTICS",
-      "status": "pending",
+      "status": "completed",
       "outputPath": "Assets/Scripts/Combat/HeavyArsenalAndBallistics.cs",
       "testPath": "Assets/Tests/HeavyBallisticsTests.cs",
       "prompt": "Using heaven-hm/project-igi-toolkit weapon IDs, write HeavyArsenalAndBallistics.cs in 'TacticalStealthCore'. Include Combat Knife, Glock 17, MP5SD3 Silenced, Dragunov SVD, PSG-1, AK-47, M16A2+M203, Spas-12, Minimi SAW, LAW-80 Rocket, C4, Proximity Mines, Flashbangs, and Thermal Binoculars with sniper breath sway, wood/sheet-metal bullet penetration, and acoustic shot masking."
