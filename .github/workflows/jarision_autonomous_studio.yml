@@ -8,7 +8,7 @@ on:
       batch_size:
         description: 'Number of tasks to complete in this run (1 to 5)'
         required: false
-        default: '2'
+        default: '5'
 
 permissions:
   contents: write
@@ -57,7 +57,7 @@ jobs:
         env:
           FREELLM_API_BASE: "http://localhost:3001/v1"
           FREELLM_MASTER_KEY: "freellmapi-jarision-master-key"
-          SPARK_BATCH_SIZE: ${{ github.event.inputs.batch_size || '2' }}
+          SPARK_BATCH_SIZE: ${{ github.event.inputs.batch_size || '5' }}
         run: |
           python3 jarision_freellm_orchestrator.py || {
             echo "=== FREELLMAPI ROUTER LOGS ==="
