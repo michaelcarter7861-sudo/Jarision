@@ -56,21 +56,21 @@
     },
     {
       "id": "SYS_06_LADDERS_ZIPLINES_ELEVATORS_DRAG",
-      "status": "pending",
+      "status": "completed",
       "outputPath": "Assets/Scripts/Player/TacticalTraversalAndCorpseDrag.cs",
       "testPath": "Assets/Tests/TraversalTests.cs",
       "prompt": "Write TacticalTraversalAndCorpseDrag.cs in 'TacticalStealthCore' implementing fast-slide IGI ladders, rooftop ziplines, multi-floor freight elevators (connecting Sector 2 surface compounds to Sector 3 underground bunkers), chain-link fence wire-cutters, lockpicking, corner leaning, and corpse dragging."
     },
     {
       "id": "BLENDER_01_COMPOUND_ARCHITECTURE",
-      "status": "pending",
+      "status": "completed",
       "outputPath": "tools/blender/build_igi_compounds_pack.py",
       "testPath": "",
       "prompt": "Write a headless Blender Python (bpy) script that builds and exports authentic Project I.G.I. Cold-War .glb 3D models into Assets/StreamingAssets/Models/: 1) Concrete Perimeter Wall & Electric Sliding Gate, 2) Radar Dome Building, 3) 2-Story Barracks with Interior Rooms, 4) Underground Elevator Bunker Entrance, 5) Security Camera & Transformer Box, and 6) Green-Screen Military Terminal Desk."
     },
     {
       "id": "BLENDER_02_WEAPONS_AND_VEHICLES",
-      "status": "pending",
+      "status": "completed",
       "outputPath": "tools/blender/build_igi_weapons_and_vehicles.py",
       "testPath": "",
       "prompt": "Write a headless Blender Python (bpy) script that builds and exports low-poly UV-mapped .glb 3D models into Assets/StreamingAssets/Models/ for: MP5SD3 Silenced SMG, Dragunov SVD Sniper, AK-47, LAW-80, Thermal Binoculars, Military Supply Truck, and Armored Train Car."
