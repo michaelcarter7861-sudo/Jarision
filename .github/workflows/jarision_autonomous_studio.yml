@@ -2,13 +2,19 @@ name: Jarision 24/7 Autonomous Studio (100% FreeLLMAPI + 14 IGI Missions)
 
 on:
   schedule:
+    # Auto-activates every 30 minutes
     - cron: '*/30 * * * *'
   workflow_dispatch:
     inputs:
       batch_size:
         description: 'Number of tasks to complete in this run (1 to 5)'
         required: false
-        default: '5'
+        default: '3'
+
+# WAIT QUEUE: If a job is already running, the new run waits in queue instead of cancelling or colliding!
+concurrency:
+  group: jarision-autonomous-studio-queue
+  cancel-in-progress: false
 
 permissions:
   contents: write
@@ -21,22 +27,24 @@ jobs:
     steps:
       - name: Checkout Jarision Repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: Clone tashfeenahmed/freellmapi & All 9 Reference/Skill Repositories
+      - name: Clone tashfeenahmed/freellmapi & All 8 IGI Toolkit / Agent Skill Repositories
         run: |
           mkdir -p reference/igi-ecosystem reference/freellmapi
-          git clone --depth 1 https://github.com/tashfeenahmed/freellmapi.git reference/freellmapi || true
-          git clone --depth 1 https://github.com/heaven-hm/project-igi-toolkit.git reference/igi-ecosystem/project-igi-toolkit || true
-          git clone --depth 1 https://github.com/heaven-hm/project-igi-editor.git reference/igi-ecosystem/project-igi-editor || true
-          git clone --depth 1 https://github.com/heaven-hm/project-igi-internals-data.git reference/igi-ecosystem/project-igi-internals-data || true
-          git clone --depth 1 https://github.com/heaven-hm/project-igi-research.git reference/igi-ecosystem/project-igi-research || true
+          git clone --depth 1 https://github.com/tashfeenahmed/freellmapi.git reference/freellmapi
+          git clone --depth 1 https://github.com/heaven-hm/project-igi-toolkit.git reference/igi-ecosystem/project-igi-toolkit
+          git clone --depth 1 https://github.com/heaven-hm/project-igi-editor.git reference/igi-ecosystem/project-igi-editor
+          git clone --depth 1 https://github.com/heaven-hm/project-igi-internals-data.git reference/igi-ecosystem/project-igi-internals-data
+          git clone --depth 1 https://github.com/heaven-hm/project-igi-research.git reference/igi-ecosystem/project-igi-research
 
-          git clone --depth 1 https://github.com/Unity-Technologies/skills.git .agent/skills/unity-official || true
-          git clone --depth 1 https://github.com/obra/superpowers.git .agent/skills/superpowers || true
-          git clone --depth 1 https://github.com/addyosmani/agent-skills.git .agent/skills/addyosmani-skills || true
-          git clone --depth 1 https://github.com/Common-ka/ai-agent-unity-rules.git .agent/rules/unity-rules || true
+          git clone --depth 1 https://github.com/Unity-Technologies/skills.git .agent/skills/unity-official
+          git clone --depth 1 https://github.com/obra/superpowers.git .agent/skills/superpowers
+          git clone --depth 1 https://github.com/addyosmani/agent-skills.git .agent/skills/addyosmani-skills
+          git clone --depth 1 https://github.com/Common-ka/ai-agent-unity-rules.git .agent/rules/unity-rules
 
-      - name: Start FreeLLMAPI Unified /v1 Server (With Auto-JSON Repair)
+      - name: Start FreeLLMAPI Unified /v1 Failover Server
         env:
           PORT: "3001"
           FREEAPI_CONFIG_JSON: ${{ secrets.FREEAPI_CONFIG_JSON }}
@@ -46,18 +54,20 @@ jobs:
           sleep 3
           cat freellmapi.log
 
-      - name: Install Aider, CrewAI & Headless Blender (.GLB 3D Factory)
+      - name: Install Headless Blender, Aider & CrewAI
         run: |
           sudo apt-get update -y
           sudo apt-get install -y blender
           pip install --quiet aider-chat crewai || true
-          blender --background --python tools/blender/generate_igi_assets.py || true
+          if [ -f "tools/blender/generate_igi_assets.py" ]; then
+            blender --background --python tools/blender/generate_igi_assets.py || true
+          fi
 
-      - name: Execute Jarision Studio Orchestrator via FreeLLMAPI (localhost:3001/v1)
+      - name: Execute Multi-Agent Orchestrator & Generate Verification Report
         env:
           FREELLM_API_BASE: "http://localhost:3001/v1"
           FREELLM_MASTER_KEY: "freellmapi-jarision-master-key"
-          SPARK_BATCH_SIZE: ${{ github.event.inputs.batch_size || '5' }}
+          SPARK_BATCH_SIZE: ${{ github.event.inputs.batch_size || '3' }}
         run: |
           python3 jarision_freellm_orchestrator.py || {
             echo "=== FREELLMAPI ROUTER LOGS ==="
@@ -65,7 +75,7 @@ jobs:
             exit 1
           }
 
-      - name: QA Gatekeeper - Verify C# Syntax, JSON Blueprints & .GLB Models
+      - name: QA Gatekeeper - Verify C# Braces & Mission JSONs
         run: |
           python3 -c '
           import json, os, sys
@@ -82,7 +92,7 @@ jobs:
           print("QA PASS: All C# scripts and 14-Mission JSON blueprints verified.")
           '
 
-      - name: Clean Temporary Clones & Push Completed Work to Jarision
+      - name: Pull Latest & Push Completed Work + Verification Report
         run: |
           rm -rf reference/freellmapi reference/igi-ecosystem .agent/skills/unity-official .agent/skills/superpowers .agent/skills/addyosmani-skills .agent/rules/unity-rules freellmapi.log config/freellmapi/runtime_config.json
           git config user.name "Jarision-FreeLLMAPI-Studio"
@@ -92,6 +102,7 @@ jobs:
             echo "No new changes to commit."
           else
             DONE=$(grep -c '"status": "completed"' spark_backlog.json || true)
-            git commit -m "⚡ [Jarision FreeLLMAPI Studio] Progress: ${DONE}/24 Tasks (14-Mission Heavy IGI)"
+            git commit -m "⚡ [Jarision Verified Studio] Progress: ${DONE}/24 Tasks (Wait-Queue + Multi-Repo Verified)"
+            git pull --rebase origin main || true
             git push origin main
           fi
