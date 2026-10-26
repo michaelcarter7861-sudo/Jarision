@@ -18,22 +18,14 @@ permissions:
 jobs:
   jarision-freellmapi-studio:
     runs-on: ubuntu-latest
-    services:
-      freellmapi:
-        image: ghcr.io/tashfeenahmed/freellmapi:latest
-        ports:
-          - 3001:3001
-        env:
-          PORT: 3001
-          FREEAPI_CONFIG_JSON: ${{ secrets.FREEAPI_CONFIG_JSON }}
-          FREEAPI_MASTER_KEY: ${{ secrets.FREELLM_MASTER_KEY || 'freellmapi-jarision-master-key' }}
     steps:
       - name: Checkout Jarision Repository
         uses: actions/checkout@v4
 
-      - name: Clone & Sync All 9 Reference, Skill & Agent Repositories
+      - name: Clone tashfeenahmed/freellmapi & All 9 Reference/Skill Repositories
         run: |
-          mkdir -p reference/igi-ecosystem
+          mkdir -p reference/igi-ecosystem reference/freellmapi
+          git clone --depth 1 https://github.com/tashfeenahmed/freellmapi.git reference/freellmapi || true
           git clone --depth 1 https://github.com/heaven-hm/project-igi-toolkit.git reference/igi-ecosystem/project-igi-toolkit || true
           git clone --depth 1 https://github.com/heaven-hm/project-igi-editor.git reference/igi-ecosystem/project-igi-editor || true
           git clone --depth 1 https://github.com/heaven-hm/project-igi-internals-data.git reference/igi-ecosystem/project-igi-internals-data || true
@@ -43,6 +35,16 @@ jobs:
           git clone --depth 1 https://github.com/obra/superpowers.git .agent/skills/superpowers || true
           git clone --depth 1 https://github.com/addyosmani/agent-skills.git .agent/skills/addyosmani-skills || true
           git clone --depth 1 https://github.com/Common-ka/ai-agent-unity-rules.git .agent/rules/unity-rules || true
+
+      - name: Start FreeLLMAPI Unified /v1 Server (With Auto-JSON Repair)
+        env:
+          PORT: "3001"
+          FREEAPI_CONFIG_JSON: ${{ secrets.FREEAPI_CONFIG_JSON }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          nohup python3 start_freellmapi_router.py > freellmapi.log 2>&1 &
+          sleep 3
+          cat freellmapi.log
 
       - name: Install Aider, CrewAI & Headless Blender (.GLB 3D Factory)
         run: |
@@ -54,9 +56,14 @@ jobs:
       - name: Execute Jarision Studio Orchestrator via FreeLLMAPI (localhost:3001/v1)
         env:
           FREELLM_API_BASE: "http://localhost:3001/v1"
-          FREELLM_MASTER_KEY: ${{ secrets.FREELLM_MASTER_KEY || 'freellmapi-jarision-master-key' }}
+          FREELLM_MASTER_KEY: "freellmapi-jarision-master-key"
           SPARK_BATCH_SIZE: ${{ github.event.inputs.batch_size || '2' }}
-        run: python3 jarision_freellm_orchestrator.py
+        run: |
+          python3 jarision_freellm_orchestrator.py || {
+            echo "=== FREELLMAPI ROUTER LOGS ==="
+            cat freellmapi.log
+            exit 1
+          }
 
       - name: QA Gatekeeper - Verify C# Syntax, JSON Blueprints & .GLB Models
         run: |
@@ -77,7 +84,7 @@ jobs:
 
       - name: Clean Temporary Clones & Push Completed Work to Jarision
         run: |
-          rm -rf reference/igi-ecosystem .agent/skills/unity-official .agent/skills/superpowers .agent/skills/addyosmani-skills .agent/rules/unity-rules
+          rm -rf reference/freellmapi reference/igi-ecosystem .agent/skills/unity-official .agent/skills/superpowers .agent/skills/addyosmani-skills .agent/rules/unity-rules freellmapi.log config/freellmapi/runtime_config.json
           git config user.name "Jarision-FreeLLMAPI-Studio"
           git config user.email "jarision-bot@users.noreply.github.com"
           git add .
