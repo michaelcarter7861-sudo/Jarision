@@ -1,0 +1,45 @@
+{
+  "mission_name": "Get Priboi",
+  "mission_type": "heavy",
+  "mission_description": "Infiltrate the high-security detention fortress, hack the warden's terminal, breach the cellblock, and escort Priboi to the extraction helipad.",
+  "sectors": [
+    {
+      "sector_name": "Outer Infiltration",
+      "sector_description": "Infiltrate the outer perimeter of the fortress, avoiding detection by guards and cameras.",
+      "sector_goals": [
+        {
+          "goal_name": "Infiltrate Perimeter",
+          "goal_description": "Sneak past the guards and cameras to reach the inner compound."
+        }
+      ],
+      "sector_events": [
+        {
+          "event_name": "Guard Patrol",
+          "event_description": "Guards patrol the perimeter, following a set route."
+        },
+        {
+          "event_name": "Camera Surveillance",
+          "event_description": "Security cameras monitor the perimeter, triggering alarms if intruders are detected."
+        }
+      ],
+      "sector_objects": [
+        {
+          "object_name": "Guard Tower",
+          "object_description": "A tall tower with a guard on top, equipped with a powerful searchlight."
+        },
+        {
+          "object_name": "Security Camera",
+          "object_description": "A stationary camera that monitors a specific area, triggering alarms if intruders are detected."
+        }
+      ]
+    },
+    {
+      "sector_name": "Warden's Office",
+      "sector_description": "Hack into the warden's terminal to gain access to the cellblock."
+    },
+    {
+      "sector_name": "Cellblock Breach",
+      "sector_description": "Breach the cellblock, locate Priboi, and escort him to the extraction helipad."
+    }
+  ]
+}

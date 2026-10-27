@@ -98,21 +98,21 @@
     },
     {
       "id": "MISSION_04_GOD_OLIVE_DEFENSE",
-      "status": "pending",
+      "status": "completed",
       "outputPath": "Assets/StreamingAssets/Missions/M04_GodOliveDefense.json",
       "testPath": "",
       "prompt": "Using heaven-hm/project-igi-research Mission 4 data, generate the complete 3-Sector Heavy JSON blueprint for Mission 04: GOD - Guard Olive Defense (Twin Fortified Compounds linked by a mountain cable car) with underground backup generators, Anya regional relay jamming sequence, and sniper overwatch."
     },
     {
       "id": "MISSION_05_RADAR_BASE",
-      "status": "pending",
+      "status": "completed",
       "outputPath": "Assets/StreamingAssets/Missions/M05_RadarBase.json",
       "testPath": "",
       "prompt": "Using heaven-hm/project-igi-research Mission 5 data, generate the complete 3-Sector Heavy JSON blueprint for Mission 05: Radar Base (High-Altitude Alpine Early-Warning Station) with snow acoustic zones, 3 radar domes, Anya satellite virus upload, and zipline exfiltration."
     },
     {
       "id": "MISSION_06_GET_PRIBOI",
-      "status": "pending",
+      "status": "completed",
       "outputPath": "Assets/StreamingAssets/Missions/M06_GetPriboi.json",
       "testPath": "",
       "prompt": "Using heaven-hm/project-igi-research Mission 6 data, generate the complete 3-Sector Heavy JSON blueprint for Mission 06: Get Priboi (High-Security Detention Fortress) featuring mandatory zero-alarm outer infiltration, warden terminal hack, cellblock breach, and escorting Priboi to the extraction helipad."

@@ -1,0 +1,96 @@
+{
+  "mission": {
+    "id": "M04_GodOliveDefense",
+    "name": "Guard Olive Defense",
+    "description": "Defend Twin Fortified Compounds linked by a mountain cable car with underground backup generators, Anya regional relay jamming sequence, and sniper overwatch.",
+    "sectors": [
+      {
+        "id": "Sector1",
+        "name": "Fortified Compound A",
+        "description": "Primary fortified compound with underground backup generators.",
+        "nodes": [
+          {
+            "id": "Node1",
+            "type": "Guard",
+            "position": {
+              "x": 100,
+              "y": 200,
+              "z": 0
+            },
+            "state": "Patrolling",
+            "team": "Enemy"
+          },
+          {
+            "id": "Node2",
+            "type": "Generator",
+            "position": {
+              "x": 150,
+              "y": 250,
+              "z": -10
+            },
+            "state": "Active",
+            "team": "Neutral"
+          }
+        ]
+      },
+      {
+        "id": "Sector2",
+        "name": "Fortified Compound B",
+        "description": "Secondary fortified compound with Anya regional relay jamming sequence.",
+        "nodes": [
+          {
+            "id": "Node3",
+            "type": "Guard",
+            "position": {
+              "x": 300,
+              "y": 400,
+              "z": 0
+            },
+            "state": "Patrolling",
+            "team": "Enemy"
+          },
+          {
+            "id": "Node4",
+            "type": "Relay",
+            "position": {
+              "x": 350,
+              "y": 450,
+              "z": 0
+            },
+            "state": "Active",
+            "team": "Neutral"
+          }
+        ]
+      },
+      {
+        "id": "Sector3",
+        "name": "Mountain Cable Car",
+        "description": "Cable car linking the two fortified compounds with sniper overwatch.",
+        "nodes": [
+          {
+            "id": "Node5",
+            "type": "Guard",
+            "position": {
+              "x": 200,
+              "y": 300,
+              "z": 50
+            },
+            "state": "Patrolling",
+            "team": "Enemy"
+          },
+          {
+            "id": "Node6",
+            "type": "CableCar",
+            "position": {
+              "x": 250,
+              "y": 350,
+              "z": 50
+            },
+            "state": "Active",
+            "team": "Neutral"
+          }
+        ]
+      }
+    ]
+  }
+}

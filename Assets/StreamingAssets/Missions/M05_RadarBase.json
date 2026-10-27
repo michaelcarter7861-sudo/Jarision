@@ -1,0 +1,143 @@
+{
+  "mission": {
+    "id": "M05_RadarBase",
+    "name": "Radar Base",
+    "description": "High-Altitude Alpine Early-Warning Station",
+    "sectors": [
+      {
+        "id": "Sector1",
+        "name": "Radar Domes",
+        "description": "Primary radar detection and tracking",
+        "nodes": [
+          {
+            "id": "RadarDome1",
+            "type": "RadarDome",
+            "position": {
+              "x": 100.0,
+              "y": 50.0,
+              "z": 200.0
+            },
+            "radius": 50.0,
+            "height": 100.0
+          },
+          {
+            "id": "RadarDome2",
+            "type": "RadarDome",
+            "position": {
+              "x": 150.0,
+              "y": 50.0,
+              "z": 200.0
+            },
+            "radius": 50.0,
+            "height": 100.0
+          },
+          {
+            "id": "RadarDome3",
+            "type": "RadarDome",
+            "position": {
+              "x": 200.0,
+              "y": 50.0,
+              "z": 200.0
+            },
+            "radius": 50.0,
+            "height": 100.0
+          }
+        ]
+      },
+      {
+        "id": "Sector2",
+        "name": "Snow Acoustic Zones",
+        "description": "Acoustic detection and tracking",
+        "nodes": [
+          {
+            "id": "SnowAcousticZone1",
+            "type": "SnowAcousticZone",
+            "position": {
+              "x": 100.0,
+              "y": 50.0,
+              "z": 150.0
+            },
+            "radius": 50.0,
+            "height": 50.0
+          },
+          {
+            "id": "SnowAcousticZone2",
+            "type": "SnowAcousticZone",
+            "position": {
+              "x": 150.0,
+              "y": 50.0,
+              "z": 150.0
+            },
+            "radius": 50.0,
+            "height": 50.0
+          },
+          {
+            "id": "SnowAcousticZone3",
+            "type": "SnowAcousticZone",
+            "position": {
+              "x": 200.0,
+              "y": 50.0,
+              "z": 150.0
+            },
+            "radius": 50.0,
+            "height": 50.0
+          }
+        ]
+      },
+      {
+        "id": "Sector3",
+        "name": "Zipline Exfiltration",
+        "description": "Zipline exfiltration points",
+        "nodes": [
+          {
+            "id": "ZiplineExfil1",
+            "type": "ZiplineExfil",
+            "position": {
+              "x": 100.0,
+              "y": 50.0,
+              "z": 100.0
+            },
+            "radius": 10.0,
+            "height": 10.0
+          },
+          {
+            "id": "ZiplineExfil2",
+            "type": "ZiplineExfil",
+            "position": {
+              "x": 150.0,
+              "y": 50.0,
+              "z": 100.0
+            },
+            "radius": 10.0,
+            "height": 10.0
+          },
+          {
+            "id": "ZiplineExfil3",
+            "type": "ZiplineExfil",
+            "position": {
+              "x": 200.0,
+              "y": 50.0,
+              "z": 100.0
+            },
+            "radius": 10.0,
+            "height": 10.0
+          }
+        ]
+      }
+    ],
+    "specialEvents": [
+      {
+        "id": "AnyaSatelliteVirusUpload",
+        "name": "Anya Satellite Virus Upload",
+        "description": "Upload the Anya satellite virus to the radar domes",
+        "position": {
+          "x": 150.0,
+          "y": 50.0,
+          "z": 200.0
+        },
+        "radius": 50.0,
+        "height": 100.0
+      }
+    ]
+  }
+}
