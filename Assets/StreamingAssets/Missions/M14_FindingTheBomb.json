@@ -1,0 +1,32 @@
+{
+  "mission": {
+    "id": "M14_FindingTheBomb",
+    "name": "Finding the Bomb",
+    "description": "Final Underground ICBM Silo & Reactor Complex",
+    "sectors": [
+      {
+        "id": "Sector1",
+        "name": "Outer Garrison Defenses",
+        "description": "Surface-level defenses",
+        "nodes": [
+          {
+            "id": "Node1",
+            "type": "PatrolNode",
+            "position": {
+              "x": 100,
+              "y": 200,
+              "z": 0
+            },
+            "links": [
+              {
+                "targetNodeId": "Node2",
+                "type": "Path",
+                "criteria": "AIACTIONFLAG_NONE"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

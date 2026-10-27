@@ -161,14 +161,14 @@
     },
     {
       "id": "MISSION_13_NUCLEAR_INFILTRATION",
-      "status": "pending",
+      "status": "completed",
       "outputPath": "Assets/StreamingAssets/Missions/M13_NuclearInfiltration.json",
       "testPath": "",
       "prompt": "Using heaven-hm/project-igi-research Mission 13 data, generate the complete 3-Sector Heavy JSON blueprint for Mission 13: Nuclear Infiltration (3-Floor Subterranean Plutonium Facility) featuring deep freight elevators, thermal CCTV sectors, luring biometric officers via power anomalies, and warhead core access."
     },
     {
       "id": "MISSION_14_FINDING_THE_BOMB",
-      "status": "pending",
+      "status": "completed",
       "outputPath": "Assets/StreamingAssets/Missions/M14_FindingTheBomb.json",
       "testPath": "",
       "prompt": "Using heaven-hm/project-igi-research Mission 14 data, generate the complete 3-Sector Heavy JSON blueprint for Mission 14: Finding the Bomb (Final Underground ICBM Silo & Reactor Complex) combining outer garrison defenses, subterranean reactor halls, Anya warhead defusal sequence, and final boss showdown."

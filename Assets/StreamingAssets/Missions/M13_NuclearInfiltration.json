@@ -1,0 +1,118 @@
+{
+  "mission": {
+    "id": "M13",
+    "name": "Nuclear Infiltration",
+    "description": "Infiltrate a 3-floor subterranean plutonium facility using deep freight elevators, thermal CCTV sectors, and biometric officer luring systems.",
+    "objectives": [
+      {
+        "id": "obj1",
+        "description": "Locate and disable the facility's power anomalies to lure biometric officers.",
+        "type": "stealth"
+      },
+      {
+        "id": "obj2",
+        "description": "Access the warhead core and neutralize the nuclear threat.",
+        "type": "combat"
+      }
+    ],
+    "sectors": [
+      {
+        "id": "sector1",
+        "name": "Ground Floor",
+        "description": "Main entrance and security checkpoint.",
+        "nodes": [
+          {
+            "id": "node1",
+            "type": "security",
+            "position": {
+              "x": 10.0,
+              "y": 5.0,
+              "z": 0.0
+            },
+            "connections": [
+              "node2"
+            ]
+          },
+          {
+            "id": "node2",
+            "type": "elevator",
+            "position": {
+              "x": 20.0,
+              "y": 5.0,
+              "z": 0.0
+            },
+            "connections": [
+              "node1",
+              "node3"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "sector2",
+        "name": "Middle Floor",
+        "description": "Plutonium storage and processing area.",
+        "nodes": [
+          {
+            "id": "node3",
+            "type": "elevator",
+            "position": {
+              "x": 20.0,
+              "y": 15.0,
+              "z": 0.0
+            },
+            "connections": [
+              "node2",
+              "node4"
+            ]
+          },
+          {
+            "id": "node4",
+            "type": "security",
+            "position": {
+              "x": 30.0,
+              "y": 15.0,
+              "z": 0.0
+            },
+            "connections": [
+              "node3",
+              "node5"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "sector3",
+        "name": "Top Floor",
+        "description": "Control room and warhead core access.",
+        "nodes": [
+          {
+            "id": "node5",
+            "type": "elevator",
+            "position": {
+              "x": 30.0,
+              "y": 25.0,
+              "z": 0.0
+            },
+            "connections": [
+              "node4",
+              "node6"
+            ]
+          },
+          {
+            "id": "node6",
+            "type": "security",
+            "position": {
+              "x": 40.0,
+              "y": 25.0,
+              "z": 0.0
+            },
+            "connections": [
+              "node5"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
