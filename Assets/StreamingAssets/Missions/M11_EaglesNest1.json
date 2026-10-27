@@ -1,0 +1,101 @@
+{
+  "mission": {
+    "id": "M11_EaglesNest1",
+    "name": "Eagle's Nest I",
+    "description": "Cliffside Cable Car & Outer Mountain Fortress",
+    "sectors": [
+      {
+        "id": "Sector1",
+        "name": "Cliffside Cable Car",
+        "description": "Sabotage the cable car terminal",
+        "objectives": [
+          {
+            "id": "Obj1",
+            "name": "Disable Power Grid",
+            "description": "Cut power to the cable car terminal",
+            "type": "Sabotage",
+            "location": {
+              "x": 100,
+              "y": 200,
+              "z": 50
+            }
+          },
+          {
+            "id": "Obj2",
+            "name": "Board Cable Car",
+            "description": "Board the cable car to reach the upper gondola",
+            "type": "Traversal",
+            "location": {
+              "x": 150,
+              "y": 250,
+              "z": 60
+            }
+          }
+        ],
+        "enemies": [
+          {
+            "id": "Enemy1",
+            "name": "Sniper",
+            "type": "Sniper",
+            "location": {
+              "x": 120,
+              "y": 220,
+              "z": 55
+            }
+          }
+        ],
+        "environment": {
+          "terrain": "Mountain",
+          "weather": "Clear",
+          "timeOfDay": "Day"
+        }
+      },
+      {
+        "id": "Sector2",
+        "name": "Outer Mountain Fortress",
+        "description": "Secure the upper gondola",
+        "objectives": [
+          {
+            "id": "Obj3",
+            "name": "Disable Security Cameras",
+            "description": "Cut power to the security cameras",
+            "type": "Sabotage",
+            "location": {
+              "x": 200,
+              "y": 300,
+              "z": 70
+            }
+          },
+          {
+            "id": "Obj4",
+            "name": "Board Upper Gondola",
+            "description": "Board the upper gondola to reach the Eagle's Nest",
+            "type": "Traversal",
+            "location": {
+              "x": 250,
+              "y": 350,
+              "z": 80
+            }
+          }
+        ],
+        "enemies": [
+          {
+            "id": "Enemy2",
+            "name": "Guard",
+            "type": "Guard",
+            "location": {
+              "x": 220,
+              "y": 320,
+              "z": 75
+            }
+          }
+        ],
+        "environment": {
+          "terrain": "Fortress",
+          "weather": "Clear",
+          "timeOfDay": "Day"
+        }
+      }
+    ]
+  }
+}

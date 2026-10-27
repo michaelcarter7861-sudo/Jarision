@@ -140,21 +140,21 @@
     },
     {
       "id": "MISSION_10_DEFEND_PRIBOI",
-      "status": "pending",
+      "status": "completed",
       "outputPath": "Assets/StreamingAssets/Missions/M10_DefendPriboi.json",
       "testPath": "",
       "prompt": "Using heaven-hm/project-igi-research Mission 10 data, generate the complete 3-Sector Heavy JSON blueprint for Mission 10: Defend Priboi (Ambush Village & Mountain Valley) featuring long-range Dragunov overwatch, QRF troop waves, Anya live thermal callouts, and defending the extraction zone."
     },
     {
       "id": "MISSION_11_EAGLES_NEST_I",
-      "status": "pending",
+      "status": "completed",
       "outputPath": "Assets/StreamingAssets/Missions/M11_EaglesNest1.json",
       "testPath": "",
       "prompt": "Using heaven-hm/project-igi-research Mission 11 data, generate the complete 3-Sector Heavy JSON blueprint for Mission 11: Eagle's Nest I (Cliffside Cable Car & Outer Mountain Fortress) featuring vertical sniper towers, cable car terminal sabotage, high-voltage fence grids, and upper gondola boarding."
     },
     {
       "id": "MISSION_12_EAGLES_NEST_II",
-      "status": "pending",
+      "status": "completed",
       "outputPath": "Assets/StreamingAssets/Missions/M12_EaglesNest2.json",
       "testPath": "",
       "prompt": "Using heaven-hm/project-igi-research Mission 12 data, generate the complete 3-Sector Heavy JSON blueprint for Mission 12: Eagle's Nest II (Inner Citadel & Underground Command Bunker) featuring 3 redundant security mainframes, Anya cipher decryption timer, automated bunker turrets, and cliffside zipline escape."

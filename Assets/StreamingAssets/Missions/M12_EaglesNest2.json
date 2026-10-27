@@ -1,0 +1,296 @@
+{
+  "mission": {
+    "id": "M12_EaglesNest2",
+    "name": "Eagle's Nest II",
+    "sectors": [
+      {
+        "id": "InnerCitadel",
+        "name": "Inner Citadel",
+        "nodes": [
+          {
+            "id": "Mainframe1",
+            "type": "SecurityMainframe",
+            "position": [
+              100,
+              50,
+              0
+            ],
+            "links": [
+              {
+                "id": "Link1",
+                "type": "Power",
+                "target": "Mainframe2"
+              }
+            ]
+          },
+          {
+            "id": "Mainframe2",
+            "type": "SecurityMainframe",
+            "position": [
+              150,
+              50,
+              0
+            ],
+            "links": [
+              {
+                "id": "Link2",
+                "type": "Power",
+                "target": "Mainframe3"
+              }
+            ]
+          },
+          {
+            "id": "Mainframe3",
+            "type": "SecurityMainframe",
+            "position": [
+              200,
+              50,
+              0
+            ],
+            "links": [
+              {
+                "id": "Link3",
+                "type": "Power",
+                "target": "Mainframe1"
+              }
+            ]
+          },
+          {
+            "id": "AnyaCipher",
+            "type": "DecryptionTimer",
+            "position": [
+              125,
+              75,
+              0
+            ],
+            "links": [
+              {
+                "id": "Link4",
+                "type": "Data",
+                "target": "Mainframe1"
+              }
+            ]
+          },
+          {
+            "id": "Turret1",
+            "type": "AutomatedTurret",
+            "position": [
+              100,
+              25,
+              0
+            ],
+            "links": [
+              {
+                "id": "Link5",
+                "type": "Control",
+                "target": "Mainframe1"
+              }
+            ]
+          },
+          {
+            "id": "Turret2",
+            "type": "AutomatedTurret",
+            "position": [
+              150,
+              25,
+              0
+            ],
+            "links": [
+              {
+                "id": "Link6",
+                "type": "Control",
+                "target": "Mainframe2"
+              }
+            ]
+          },
+          {
+            "id": "Turret3",
+            "type": "AutomatedTurret",
+            "position": [
+              200,
+              25,
+              0
+            ],
+            "links": [
+              {
+                "id": "Link7",
+                "type": "Control",
+                "target": "Mainframe3"
+              }
+            ]
+          },
+          {
+            "id": "Zipline",
+            "type": "EscapeRoute",
+            "position": [
+              125,
+              0,
+              0
+            ],
+            "links": [
+              {
+                "id": "Link8",
+                "type": "Exit",
+                "target": "OuterCitadel"
+              }
+            ]
+          },
+          {
+            "id": "OuterCitadel",
+            "type": "EscapeSector",
+            "position": [
+              125,
+              -25,
+              0
+            ],
+            "links": []
+          }
+        ]
+      },
+      {
+        "id": "UndergroundBunker",
+        "name": "Underground Command Bunker",
+        "nodes": [
+          {
+            "id": "Mainframe4",
+            "type": "SecurityMainframe",
+            "position": [
+              100,
+              50,
+              0
+            ],
+            "links": [
+              {
+                "id": "Link9",
+                "type": "Power",
+                "target": "Mainframe5"
+              }
+            ]
+          },
+          {
+            "id": "Mainframe5",
+            "type": "SecurityMainframe",
+            "position": [
+              150,
+              50,
+              0
+            ],
+            "links": [
+              {
+                "id": "Link10",
+                "type": "Power",
+                "target": "Mainframe6"
+              }
+            ]
+          },
+          {
+            "id": "Mainframe6",
+            "type": "SecurityMainframe",
+            "position": [
+              200,
+              50,
+              0
+            ],
+            "links": [
+              {
+                "id": "Link11",
+                "type": "Power",
+                "target": "Mainframe4"
+              }
+            ]
+          },
+          {
+            "id": "AnyaCipher2",
+            "type": "DecryptionTimer",
+            "position": [
+              125,
+              75,
+              0
+            ],
+            "links": [
+              {
+                "id": "Link12",
+                "type": "Data",
+                "target": "Mainframe4"
+              }
+            ]
+          },
+          {
+            "id": "Turret4",
+            "type": "AutomatedTurret",
+            "position": [
+              100,
+              25,
+              0
+            ],
+            "links": [
+              {
+                "id": "Link13",
+                "type": "Control",
+                "target": "Mainframe4"
+              }
+            ]
+          },
+          {
+            "id": "Turret5",
+            "type": "AutomatedTurret",
+            "position": [
+              150,
+              25,
+              0
+            ],
+            "links": [
+              {
+                "id": "Link14",
+                "type": "Control",
+                "target": "Mainframe5"
+              }
+            ]
+          },
+          {
+            "id": "Turret6",
+            "type": "AutomatedTurret",
+            "position": [
+              200,
+              25,
+              0
+            ],
+            "links": [
+              {
+                "id": "Link15",
+                "type": "Control",
+                "target": "Mainframe6"
+              }
+            ]
+          },
+          {
+            "id": "Zipline2",
+            "type": "EscapeRoute",
+            "position": [
+              125,
+              0,
+              0
+            ],
+            "links": [
+              {
+                "id": "Link16",
+                "type": "Exit",
+                "target": "OuterCitadel"
+              }
+            ]
+          },
+          {
+            "id": "OuterCitadel2",
+            "type": "EscapeSector",
+            "position": [
+              125,
+              -25,
+              0
+            ],
+            "links": []
+          }
+        ]
+      }
+    ]
+  }
+}

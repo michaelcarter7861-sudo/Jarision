@@ -1,0 +1,145 @@
+{
+  "mission": {
+    "id": "M10_DefendPriboi",
+    "name": "Defend Priboi",
+    "description": "Ambush Village & Mountain Valley",
+    "objectives": [
+      {
+        "id": "primary",
+        "description": "Defend the extraction zone against enemy ambushes",
+        "type": "defense",
+        "location": {
+          "x": 1500,
+          "y": 2000,
+          "z": 50
+        },
+        "required": true
+      },
+      {
+        "id": "secondary",
+        "description": "Eliminate enemy overwatch positions",
+        "type": "elimination",
+        "location": {
+          "x": 1800,
+          "y": 2200,
+          "z": 100
+        },
+        "required": false
+      }
+    ],
+    "sectors": [
+      {
+        "id": "sector1",
+        "name": "Ambush Village",
+        "description": "Primary ambush location with enemy snipers and grenadiers",
+        "boundaries": {
+          "minX": 1000,
+          "maxX": 2000,
+          "minY": 1500,
+          "maxY": 2500,
+          "minZ": 0,
+          "maxZ": 100
+        },
+        "enemyForces": [
+          {
+            "type": "sniper",
+            "count": 3,
+            "equipment": [
+              "Dragunov",
+              "Night Vision Goggles"
+            ]
+          },
+          {
+            "type": "grenadier",
+            "count": 5,
+            "equipment": [
+              "AK-74",
+              "Frag Grenades"
+            ]
+          }
+        ],
+        "allyForces": [
+          {
+            "type": "rifleman",
+            "count": 4,
+            "equipment": [
+              "AK-74",
+              "Night Vision Goggles"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "sector2",
+        "name": "Mountain Valley",
+        "description": "Secondary ambush location with enemy machine gunners",
+        "boundaries": {
+          "minX": 1500,
+          "maxX": 2500,
+          "minY": 2000,
+          "maxY": 3000,
+          "minZ": 0,
+          "maxZ": 150
+        },
+        "enemyForces": [
+          {
+            "type": "machineGunner",
+            "count": 2,
+            "equipment": [
+              "PKM",
+              "Night Vision Goggles"
+            ]
+          }
+        ],
+        "allyForces": [
+          {
+            "type": "rifleman",
+            "count": 3,
+            "equipment": [
+              "AK-74",
+              "Night Vision Goggles"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "sector3",
+        "name": "Extraction Zone",
+        "description": "Primary extraction point for QRF troops",
+        "boundaries": {
+          "minX": 1200,
+          "maxX": 1800,
+          "minY": 1800,
+          "maxY": 2400,
+          "minZ": 0,
+          "maxZ": 50
+        },
+        "allyForces": [
+          {
+            "type": "rifleman",
+            "count": 6,
+            "equipment": [
+              "AK-74",
+              "Night Vision Goggles"
+            ]
+          }
+        ]
+      }
+    ],
+    "specialConditions": [
+      {
+        "id": "anyaThermal",
+        "description": "Anya provides live thermal callouts to identify enemy positions",
+        "trigger": "missionStart",
+        "effect": "enhancedEnemyDetection"
+      },
+      {
+        "id": "qrfWaves",
+        "description": "QRF troops arrive in waves to reinforce the extraction zone",
+        "trigger": "timeElapsed",
+        "value": 300,
+        "effect": "additionalAllyForces"
+      }
+    ]
+  }
+}
