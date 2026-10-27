@@ -1,0 +1,79 @@
+{
+  "mission": {
+    "id": "M01_AirfieldInfiltration",
+    "sectors": [
+      {
+        "id": "OuterValley",
+        "nodes": [
+          {
+            "id": "SniperRidge",
+            "position": [
+              1200,
+              50,
+              800
+            ],
+            "type": "SniperPosition",
+            "visibility": "High"
+          }
+        ]
+      },
+      {
+        "id": "SurfaceAirfield",
+        "nodes": [
+          {
+            "id": "ATCTower",
+            "position": [
+              800,
+              0,
+              400
+            ],
+            "type": "Terminal",
+            "hackable": true
+          },
+          {
+            "id": "Runway",
+            "position": [
+              600,
+              0,
+              200
+            ],
+            "type": "Runway",
+            "length": 1200
+          }
+        ]
+      },
+      {
+        "id": "RadarOutpost",
+        "nodes": [
+          {
+            "id": "Transformer",
+            "position": [
+              1000,
+              0,
+              600
+            ],
+            "type": "PowerGrid",
+            "critical": true
+          },
+          {
+            "id": "SupplyTruck",
+            "position": [
+              900,
+              0,
+              500
+            ],
+            "type": "EscapeRoute",
+            "vehicle": "Truck"
+          }
+        ]
+      }
+    ],
+    "intel": {
+      "AnyaRadio": {
+        "frequency": "102.5MHz",
+        "content": "Live intel on enemy movements"
+      },
+      "Objective": "Infiltrate the military airbase and disable the radar outpost"
+    }
+  }
+}

@@ -1,0 +1,161 @@
+{
+  "mission": {
+    "id": "M02_SamBase",
+    "name": "SAM Base",
+    "sectors": [
+      {
+        "id": "Sector1",
+        "name": "Mountain Gorge",
+        "objects": [
+          {
+            "id": "Watchtower1",
+            "type": "Watchtower",
+            "position": [
+              100,
+              50,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          {
+            "id": "SuspensionBridge1",
+            "type": "SuspensionBridge",
+            "position": [
+              200,
+              100,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Sector2",
+        "name": "Surface-to-Air Missile Bunkers",
+        "objects": [
+          {
+            "id": "SAMLauncher1",
+            "type": "SAMLauncher",
+            "position": [
+              300,
+              150,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          {
+            "id": "SAMLauncher2",
+            "type": "SAMLauncher",
+            "position": [
+              400,
+              200,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          {
+            "id": "SAMLauncher3",
+            "type": "SAMLauncher",
+            "position": [
+              500,
+              250,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Sector3",
+        "name": "Underground Ordnance Bunker",
+        "objects": [
+          {
+            "id": "OrdnanceBunker1",
+            "type": "OrdnanceBunker",
+            "position": [
+              600,
+              300,
+              0
+            ],
+            "rotation": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        ]
+      }
+    ],
+    "anyaSatelliteWarnings": [
+      {
+        "id": "Warning1",
+        "type": "AnyaSatelliteWarning",
+        "position": [
+          700,
+          350,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "mission": {
+    "id": "M03",
+    "name": "Military Airbase Defense",
+    "description": "Supply Depot, Hangars & Helipad",
+    "sectors": [
+      {
+        "id": "Sector1",
+        "name": "Supply Depot",
+        "description": "High-noise helicopter rotor masking zones",
+        "nodes": [
+          {
+            "id": "Node1",
+            "type": "Helipad",
+            "position": {
+              "x": 100,
+              "y": 200,
+              "z": 0
+            },
+            "radius": 50,
+            "material": "Concrete",
+            "lightValue": 0.8
+          }
+        ]
+      },
+      {
+        "id": "Sector2",
+        "name": "Hangars",
+        "description": "Hangar CCTV networks",
+        "nodes": [
+          {
+            "id": "Node2",
+            "type": "Hangar",
+            "position": {
+              "x": 300,
+              "y": 400,
+              "z": 0
+            },
+            "radius": 100,
+            "material": "Metal",
+            "lightValue": 0.5
+          }
+        ]
+      },
+      {
+        "id": "Sector3",
+        "name": "Helipad",
+        "description": "Avionics cipher theft and chopper extraction",
+        "nodes": [
+          {
+            "id": "Node3",
+            "type": "Helipad",
+            "position": {
+              "x": 500,
+              "y": 600,
+              "z": 0
+            },
+            "radius": 50,
+            "material": "Concrete",
+            "lightValue": 0.8
+          }
+        ]
+      }
+    ]
+  }
+}

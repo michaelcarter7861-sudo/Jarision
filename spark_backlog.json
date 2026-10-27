@@ -77,21 +77,21 @@
     },
     {
       "id": "MISSION_01_AIRFIELD_INFILTRATION",
-      "status": "pending",
+      "status": "completed",
       "outputPath": "Assets/StreamingAssets/Missions/M01_AirfieldInfiltration.json",
       "testPath": "",
       "prompt": "Using heaven-hm/project-igi-research Mission 1 data, generate the complete 3-Sector Heavy JSON blueprint for Mission 01: Airfield Infiltration (Military Airbase & Radar Outpost). Include outer valley sniper ridge, surface airfield, ATC tower terminal hack, Anya live radio intel, transformer power grid, and supply truck escape."
     },
     {
       "id": "MISSION_02_SAM_BASE",
-      "status": "pending",
+      "status": "completed",
       "outputPath": "Assets/StreamingAssets/Missions/M02_SamBase.json",
       "testPath": "",
       "prompt": "Using heaven-hm/project-igi-research Mission 2 data, generate the complete 3-Sector Heavy JSON blueprint for Mission 02: SAM Base (Mountain Gorge & Surface-to-Air Missile Bunkers) with watchtowers, suspension bridges, 3 SAM launchers to destroy with C4, underground ordnance bunker, and Anya satellite warnings."
     },
     {
       "id": "MISSION_03_MILITARY_AIRBASE_DEFENSE",
-      "status": "pending",
+      "status": "completed",
       "outputPath": "Assets/StreamingAssets/Missions/M03_MilitaryAirbaseDefense.json",
       "testPath": "",
       "prompt": "Using heaven-hm/project-igi-research Mission 3 data, generate the complete 3-Sector Heavy JSON blueprint for Mission 03: Military Airbase Defense (Supply Depot, Hangars & Helipad) with high-noise helicopter rotor masking zones, hangar CCTV networks, avionics cipher theft, and chopper extraction."
