@@ -119,21 +119,21 @@
     },
     {
       "id": "MISSION_07_BORDER_CROSSING",
-      "status": "pending",
+      "status": "completed",
       "outputPath": "Assets/StreamingAssets/Missions/M07_BorderCrossing.json",
       "testPath": "",
       "prompt": "Using heaven-hm/project-igi-research Mission 7 data, generate the complete 3-Sector Heavy JSON blueprint for Mission 07: Border Crossing (Fortified Mountain Pass & Armored Garrison) with sweeping searchlights, patrolling BTR/tank units, LAW-80 rocket stashes, command post wiretap, and border escape."
     },
     {
       "id": "MISSION_08_RESUPPLY",
-      "status": "pending",
+      "status": "completed",
       "outputPath": "Assets/StreamingAssets/Missions/M08_ReSupply.json",
       "testPath": "",
       "prompt": "Using heaven-hm/project-igi-research Mission 8 data, generate the complete 3-Sector Heavy JSON blueprint for Mission 08: Re-Supply (Night Munitions Depot & Logistics Hub) featuring weapon stash recovery, underground ammo dump sabotage, CCTV transformer grid cuts, and convoy hijacking."
     },
     {
       "id": "MISSION_09_MISSILE_TRAIN_YARD",
-      "status": "pending",
+      "status": "completed",
       "outputPath": "Assets/StreamingAssets/Missions/M09_MissileTrainYard.json",
       "testPath": "",
       "prompt": "Using heaven-hm/project-igi-research Mission 9 data, generate the complete 3-Sector Heavy JSON blueprint for Mission 09: Missile Train Yard (Snowy Armored Train Logistics Depot) featuring crane sniper towers, control tower track-switching terminals, acoustic locomotive masking, and boarding the moving train."

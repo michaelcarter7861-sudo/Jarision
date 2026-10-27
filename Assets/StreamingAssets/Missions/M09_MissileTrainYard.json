@@ -1,0 +1,118 @@
+{
+  "mission": {
+    "id": "M09_MissileTrainYard",
+    "name": "Missile Train Yard",
+    "description": "Snowy Armored Train Logistics Depot",
+    "sectors": [
+      {
+        "id": "Sector1",
+        "name": "Crane Sniper Towers",
+        "description": "High-altitude vantage points for precise sniper engagements",
+        "nodes": [
+          {
+            "id": "Node1",
+            "type": "SniperTower",
+            "position": {
+              "x": 100,
+              "y": 200,
+              "z": 50
+            },
+            "rotation": {
+              "x": 0,
+              "y": 90,
+              "z": 0
+            },
+            "scale": {
+              "x": 1,
+              "y": 1,
+              "z": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "Sector2",
+        "name": "Control Tower Track-Switching Terminals",
+        "description": "Central command hub for managing train routes and switches",
+        "nodes": [
+          {
+            "id": "Node2",
+            "type": "ControlTerminal",
+            "position": {
+              "x": 300,
+              "y": 150,
+              "z": 100
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "scale": {
+              "x": 1,
+              "y": 1,
+              "z": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "Sector3",
+        "name": "Acoustic Locomotive Masking",
+        "description": "Strategic points for masking the train's acoustic signature",
+        "nodes": [
+          {
+            "id": "Node3",
+            "type": "AcousticMask",
+            "position": {
+              "x": 200,
+              "y": 100,
+              "z": 150
+            },
+            "rotation": {
+              "x": 0,
+              "y": 45,
+              "z": 0
+            },
+            "scale": {
+              "x": 1,
+              "y": 1,
+              "z": 1
+            }
+          }
+        ]
+      }
+    ],
+    "train": {
+      "id": "Train1",
+      "name": "Missile Train",
+      "description": "Armored train carrying sensitive cargo",
+      "path": [
+        {
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "position": {
+            "x": 100,
+            "y": 0,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        }
+      ]
+    }
+  }
+}

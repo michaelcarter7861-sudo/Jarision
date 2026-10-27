@@ -1,0 +1,278 @@
+{
+  "mission": {
+    "id": "M08_ReSupply",
+    "name": "Re-Supply",
+    "description": "Night Munitions Depot & Logistics Hub",
+    "objectives": [
+      {
+        "id": "weapon_stash_recovery",
+        "description": "Recover weapon stash",
+        "location": {
+          "sector": "SectorA",
+          "coordinates": {
+            "x": 100,
+            "y": 200,
+            "z": 0
+          }
+        }
+      },
+      {
+        "id": "underground_ammo_dump_sabotage",
+        "description": "Sabotage underground ammo dump",
+        "location": {
+          "sector": "SectorB",
+          "coordinates": {
+            "x": 300,
+            "y": 400,
+            "z": 0
+          }
+        }
+      },
+      {
+        "id": "cctv_transformer_grid_cuts",
+        "description": "Cut CCTV transformer grid",
+        "location": {
+          "sector": "SectorC",
+          "coordinates": {
+            "x": 500,
+            "y": 600,
+            "z": 0
+          }
+        }
+      },
+      {
+        "id": "convoy_hijacking",
+        "description": "Hijack supply convoy",
+        "location": {
+          "sector": "SectorA",
+          "coordinates": {
+            "x": 700,
+            "y": 800,
+            "z": 0
+          }
+        }
+      }
+    ],
+    "sectors": [
+      {
+        "id": "SectorA",
+        "name": "Night Munitions Depot",
+        "description": "Primary weapons storage and logistics hub",
+        "size": {
+          "width": 1000,
+          "height": 1000
+        },
+        "buildings": [
+          {
+            "id": "building_1",
+            "name": "Main Depot",
+            "description": "Central weapons storage facility",
+            "coordinates": {
+              "x": 500,
+              "y": 500,
+              "z": 0
+            },
+            "size": {
+              "width": 200,
+              "height": 200
+            }
+          }
+        ],
+        "patrolNodes": [
+          {
+            "id": "node_1",
+            "coordinates": {
+              "x": 100,
+              "y": 100,
+              "z": 0
+            },
+            "links": [
+              {
+                "nodeId": "node_2",
+                "type": "walk"
+              }
+            ]
+          },
+          {
+            "id": "node_2",
+            "coordinates": {
+              "x": 300,
+              "y": 300,
+              "z": 0
+            },
+            "links": [
+              {
+                "nodeId": "node_1",
+                "type": "walk"
+              },
+              {
+                "nodeId": "node_3",
+                "type": "walk"
+              }
+            ]
+          },
+          {
+            "id": "node_3",
+            "coordinates": {
+              "x": 500,
+              "y": 500,
+              "z": 0
+            },
+            "links": [
+              {
+                "nodeId": "node_2",
+                "type": "walk"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "SectorB",
+        "name": "Logistics Hub",
+        "description": "Secondary weapons storage and logistics hub",
+        "size": {
+          "width": 1000,
+          "height": 1000
+        },
+        "buildings": [
+          {
+            "id": "building_2",
+            "name": "Secondary Depot",
+            "description": "Secondary weapons storage facility",
+            "coordinates": {
+              "x": 500,
+              "y": 500,
+              "z": 0
+            },
+            "size": {
+              "width": 200,
+              "height": 200
+            }
+          }
+        ],
+        "patrolNodes": [
+          {
+            "id": "node_4",
+            "coordinates": {
+              "x": 100,
+              "y": 100,
+              "z": 0
+            },
+            "links": [
+              {
+                "nodeId": "node_5",
+                "type": "walk"
+              }
+            ]
+          },
+          {
+            "id": "node_5",
+            "coordinates": {
+              "x": 300,
+              "y": 300,
+              "z": 0
+            },
+            "links": [
+              {
+                "nodeId": "node_4",
+                "type": "walk"
+              },
+              {
+                "nodeId": "node_6",
+                "type": "walk"
+              }
+            ]
+          },
+          {
+            "id": "node_6",
+            "coordinates": {
+              "x": 500,
+              "y": 500,
+              "z": 0
+            },
+            "links": [
+              {
+                "nodeId": "node_5",
+                "type": "walk"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "SectorC",
+        "name": "CCTV Transformer Grid",
+        "description": "CCTV transformer grid for surveillance",
+        "size": {
+          "width": 1000,
+          "height": 1000
+        },
+        "buildings": [
+          {
+            "id": "building_3",
+            "name": "Transformer Station",
+            "description": "CCTV transformer station",
+            "coordinates": {
+              "x": 500,
+              "y": 500,
+              "z": 0
+            },
+            "size": {
+              "width": 200,
+              "height": 200
+            }
+          }
+        ],
+        "patrolNodes": [
+          {
+            "id": "node_7",
+            "coordinates": {
+              "x": 100,
+              "y": 100,
+              "z": 0
+            },
+            "links": [
+              {
+                "nodeId": "node_8",
+                "type": "walk"
+              }
+            ]
+          },
+          {
+            "id": "node_8",
+            "coordinates": {
+              "x": 300,
+              "y": 300,
+              "z": 0
+            },
+            "links": [
+              {
+                "nodeId": "node_7",
+                "type": "walk"
+              },
+              {
+                "nodeId": "node_9",
+                "type": "walk"
+              }
+            ]
+          },
+          {
+            "id": "node_9",
+            "coordinates": {
+              "x": 500,
+              "y": 500,
+              "z": 0
+            },
+            "links": [
+              {
+                "nodeId": "node_8",
+                "type": "walk"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

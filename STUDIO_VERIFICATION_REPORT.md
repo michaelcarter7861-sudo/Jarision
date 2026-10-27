@@ -226,3 +226,81 @@ Yeh report har automated run par verify karti hai ke `tashfeenahmed/freellmapi` 
 | `Common-ka/ai-agent-unity-rules` | ACTIVE | 55 files | `fb4f8f7` |
 
 ---
+## Task Execution Audit: `MISSION_07_BORDER_CROSSING` (2026-10-27 12:36:13 UTC)
+- **Generated File:** `Assets/StreamingAssets/Missions/M07_BorderCrossing.json`
+- **FreeLLMAPI Models Used:** `mistral/codestral-latest -> mistral/codestral-latest`
+- **Total Reference & Skill Files Injected into Context:** `173 files`
+- **Sample Read Files:** `.agent/skills/unity-official/LICENSE.md, .agent/skills/unity-official/README.md, .agent/skills/unity-official/CONTRIBUTING.md, .agent/skills/unity-official/skills/ui-uitk/SKILL.md, .agent/skills/unity-official/skills/ui-uitk/references/pointermanipulator-guide.md, .agent/skills/unity-official/skills/ui-uitk/references/uss-guide.md, .agent/skills/unity-official/skills/optimize-text-mesh-pro/SKILL.md, .agent/skills/unity-official/skills/shader-graph-create-custom-node/SKILL.md`
+- **I.G.I. Toolkit Schemas Applied (Agent 1):** `heaven-hm/project-igi-research/Data/Missions/M07_BorderCrossing.json, heaven-hm/project-igi-research/Data/Misc/Game-Vars/igi1_variables.txt, heaven-hm/project-igi-research/Data/Misc/Game-Vars/igi1_methods.txt, heaven-hm/project-igi-research/Data/Misc/Game-Vars/igi2_variables.txt, heaven-hm/project-igi-research/Data/Misc/Game-Vars/igi2_methods.txt`
+- **Agent Skills Applied (Agent 1):** `igi-tactical-design, blender-glb-factory, ui-uitk, initialize-ai-navigation, physics-3d-collision, setup-vivox-voice-chat, urp-postprocessing, optimize-audio, sprite-editor, setup-multiplayer-services, 2d-pixel-perfect, ui-imgui, create-2d-physics, optimize-web, ui, validate-urp-render-graph-renderer-feature, build-live-game, new-unity-project`
+- **QA Reviewer Verdict (Agent 2):** 1. Valid JSON structure with mission, sectors, and nodes. 2. All nodes have required fields (id, type, position, rotation, scale). 3. Position, rotation, and scale values are within expected ranges. 4. No duplicate node IDs. 5. All references to heaven-hm/project-igi-research data are accurate.
+
+### Synced Repositories Proof Table
+| Repository | Status | Files Loaded | Git Commit |
+| :--- | :--- | :--- | :--- |
+| `tashfeenahmed/freellmapi` | ACTIVE | 1316 files | `26a50fc` |
+| `heaven-hm/project-igi-toolkit` | ACTIVE | 106 files | `157a5df` |
+| `heaven-hm/project-igi-editor` | ACTIVE | 838 files | `5222656` |
+| `heaven-hm/project-igi-internals-data` | ACTIVE | 166 files | `b14399a` |
+| `heaven-hm/project-igi-research` | ACTIVE | 246 files | `9d11faf` |
+| `Unity-Technologies/skills` | ACTIVE | 258 files | `51f530f` |
+| `obra/superpowers` | ACTIVE | 261 files | `2ce8aa1` |
+| `addyosmani/agent-skills` | ACTIVE | 246 files | `aeac41d` |
+| `Common-ka/ai-agent-unity-rules` | ACTIVE | 55 files | `fb4f8f7` |
+
+---
+## Task Execution Audit: `MISSION_08_RESUPPLY` (2026-10-27 12:36:40 UTC)
+- **Generated File:** `Assets/StreamingAssets/Missions/M08_ReSupply.json`
+- **FreeLLMAPI Models Used:** `mistral/codestral-latest -> mistral/codestral-latest`
+- **Total Reference & Skill Files Injected into Context:** `173 files`
+- **Sample Read Files:** `.agent/skills/unity-official/LICENSE.md, .agent/skills/unity-official/README.md, .agent/skills/unity-official/CONTRIBUTING.md, .agent/skills/unity-official/skills/ui-uitk/SKILL.md, .agent/skills/unity-official/skills/ui-uitk/references/pointermanipulator-guide.md, .agent/skills/unity-official/skills/ui-uitk/references/uss-guide.md, .agent/skills/unity-official/skills/optimize-text-mesh-pro/SKILL.md, .agent/skills/unity-official/skills/shader-graph-create-custom-node/SKILL.md`
+- **I.G.I. Toolkit Schemas Applied (Agent 1):** `heaven-hm/project-igi-research/Data/Missions/M08_ReSupply.json, heaven-hm/project-igi-research/Data/Misc/Game-Vars/igi1_variables.txt, heaven-hm/project-igi-research/Data/Misc/Game-Vars/igi1_methods.txt, heaven-hm/project-igi-research/Data/Misc/Game-Vars/igi2_variables.txt, heaven-hm/project-igi-research/Data/Misc/Game-Vars/igi2_constants.txt`
+- **Agent Skills Applied (Agent 1):** `igi-tactical-design, blender-glb-factory, ui-uitk, initialize-ai-navigation, physics-3d-collision, optimize-text-mesh-pro, shader-graph-create-custom-node, create-tile-palette-or-rule-tiles, manage-sprite-atlas, project-auditor-fixes, generate-editor-search-query, levelplay-unity-integration, implement-in-app-purchases, asset-transformer-toolkit, ui-ugui, localization, migrate-birp-to-urp, unity-package-management, unity-pipeline, unity-cli, setup-vivox-voice-chat, urp-postprocessing, optimize-web, ui-imgui, create-2d-physics, optimize-audio, sprite-editor, setup-multiplayer-services, 2d-pixel-perfect, ui, validate-urp-render-graph-renderer-feature, build-live-game, new-unity-project`
+- **QA Reviewer Verdict (Agent 2):** 1. Valid JSON structure confirmed.
+2. Mission layout matches 3-Sector Project I.G.I. specifications.
+3. All objectives and sectors are correctly defined.
+4. Patrol nodes and links are properly configured.
+5. No Zero-GC violations detected in the JSON structure.
+
+### Synced Repositories Proof Table
+| Repository | Status | Files Loaded | Git Commit |
+| :--- | :--- | :--- | :--- |
+| `tashfeenahmed/freellmapi` | ACTIVE | 1316 files | `26a50fc` |
+| `heaven-hm/project-igi-toolkit` | ACTIVE | 106 files | `157a5df` |
+| `heaven-hm/project-igi-editor` | ACTIVE | 838 files | `5222656` |
+| `heaven-hm/project-igi-internals-data` | ACTIVE | 166 files | `b14399a` |
+| `heaven-hm/project-igi-research` | ACTIVE | 246 files | `9d11faf` |
+| `Unity-Technologies/skills` | ACTIVE | 258 files | `51f530f` |
+| `obra/superpowers` | ACTIVE | 261 files | `2ce8aa1` |
+| `addyosmani/agent-skills` | ACTIVE | 246 files | `aeac41d` |
+| `Common-ka/ai-agent-unity-rules` | ACTIVE | 55 files | `fb4f8f7` |
+
+---
+## Task Execution Audit: `MISSION_09_MISSILE_TRAIN_YARD` (2026-10-27 12:36:57 UTC)
+- **Generated File:** `Assets/StreamingAssets/Missions/M09_MissileTrainYard.json`
+- **FreeLLMAPI Models Used:** `mistral/codestral-latest -> mistral/codestral-latest`
+- **Total Reference & Skill Files Injected into Context:** `173 files`
+- **Sample Read Files:** `.agent/skills/unity-official/LICENSE.md, .agent/skills/unity-official/README.md, .agent/skills/unity-official/CONTRIBUTING.md, .agent/skills/unity-official/skills/ui-uitk/SKILL.md, .agent/skills/unity-official/skills/ui-uitk/references/pointermanipulator-guide.md, .agent/skills/unity-official/skills/ui-uitk/references/uss-guide.md, .agent/skills/unity-official/skills/optimize-text-mesh-pro/SKILL.md, .agent/skills/unity-official/skills/shader-graph-create-custom-node/SKILL.md`
+- **I.G.I. Toolkit Schemas Applied (Agent 1):** `reference/igi-ecosystem/project-igi-research/Data/Missions/M09_MissileTrainYard.json, reference/igi-ecosystem/project-igi-research/Data/Misc/Game-Vars/igi1_variables.txt, reference/igi-ecosystem/project-igi-research/Data/Misc/Game-Vars/igi1_methods.txt, reference/igi-ecosystem/project-igi-research/Data/Misc/Game-Vars/igi2_variables.txt, reference/igi-ecosystem/project-igi-research/Data/Misc/Game-Vars/igi2_methods.txt`
+- **Agent Skills Applied (Agent 1):** `skills/igi-tactical-design/SKILL.md, skills/unity-official/skills/initialize-ai-navigation/SKILL.md, skills/unity-official/skills/setup-vivox-voice-chat/SKILL.md, skills/unity-official/skills/implement-in-app-purchases/SKILL.md, skills/unity-official/skills/physics-3d-collision/SKILL.md, skills/unity-official/skills/optimize-audio/SKILL.md, skills/unity-official/skills/sprite-editor/SKILL.md, skills/unity-official/skills/setup-multiplayer-services/SKILL.md, skills/unity-official/skills/2d-pixel-perfect/SKILL.md, skills/unity-official/skills/ui/SKILL.md, skills/unity-official/skills/validate-urp-render-graph-renderer-feature/SKILL.md, skills/unity-official/skills/build-live-game/SKILL.md, skills/unity-official/skills/new-unity-project/SKILL.md, skills/blender-glb-factory/SKILL.md, skills/addyosmani-skills/skills/idea-refine/SKILL.md, skills/addyosmani-skills/skills/planning-and-task-breakdown/SKILL.md, skills/addyosmani-skills/skills/source-driven-development/SKILL.md, skills/addyosmani-skills/skills/incremental-implementation/SKILL.md, skills/addyosmani-skills/skills/code-review-and-quality/SKILL.md, skills/addyosmani-skills/skills/spec-driven-development/SKILL.md, skills/addyosmani-skills/skills/security-and-hardening/SKILL.md, skills/addyosmani-skills/skills/ci-cd-and-automation/SKILL.md, skills/addyosmani-skills/skills/frontend-ui-engineering/SKILL.md, skills/addyosmani-skills/skills/doubt-driven-development/SKILL.md, skills/addyosmani-skills/skills/interview-me/SKILL.md`
+- **QA Reviewer Verdict (Agent 2):** 1. Valid JSON structure with proper formatting and syntax.
+2. All required fields (mission, sectors, nodes, train) are present.
+3. Position, rotation, and scale values are correctly formatted.
+4. No LINQ or other non-Zero-GC constructs are used.
+5. All nodes and sectors are correctly defined and linked.
+6. The train path is correctly defined with position and rotation values.
+
+### Synced Repositories Proof Table
+| Repository | Status | Files Loaded | Git Commit |
+| :--- | :--- | :--- | :--- |
+| `tashfeenahmed/freellmapi` | ACTIVE | 1316 files | `26a50fc` |
+| `heaven-hm/project-igi-toolkit` | ACTIVE | 106 files | `157a5df` |
+| `heaven-hm/project-igi-editor` | ACTIVE | 838 files | `5222656` |
+| `heaven-hm/project-igi-internals-data` | ACTIVE | 166 files | `b14399a` |
+| `heaven-hm/project-igi-research` | ACTIVE | 246 files | `9d11faf` |
+| `Unity-Technologies/skills` | ACTIVE | 258 files | `51f530f` |
+| `obra/superpowers` | ACTIVE | 261 files | `2ce8aa1` |
+| `addyosmani/agent-skills` | ACTIVE | 246 files | `aeac41d` |
+| `Common-ka/ai-agent-unity-rules` | ACTIVE | 55 files | `fb4f8f7` |
+
+---

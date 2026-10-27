@@ -1,0 +1,99 @@
+{
+  "mission": {
+    "id": "M07_BorderCrossing",
+    "name": "Border Crossing",
+    "description": "Fortified Mountain Pass & Armored Garrison",
+    "sectors": [
+      {
+        "id": "Sector1",
+        "name": "Fortified Mountain Pass",
+        "description": "Sweeping searchlights, patrolling BTR/tank units, LAW-80 rocket stashes",
+        "nodes": [
+          {
+            "id": "Node1",
+            "type": "Searchlight",
+            "position": {
+              "x": 100,
+              "y": 200,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "scale": {
+              "x": 1,
+              "y": 1,
+              "z": 1
+            }
+          },
+          {
+            "id": "Node2",
+            "type": "BTR",
+            "position": {
+              "x": 150,
+              "y": 250,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "scale": {
+              "x": 1,
+              "y": 1,
+              "z": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "Sector2",
+        "name": "Armored Garrison",
+        "description": "Command post wiretap, border escape",
+        "nodes": [
+          {
+            "id": "Node3",
+            "type": "Wiretap",
+            "position": {
+              "x": 300,
+              "y": 400,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "scale": {
+              "x": 1,
+              "y": 1,
+              "z": 1
+            }
+          },
+          {
+            "id": "Node4",
+            "type": "Escape",
+            "position": {
+              "x": 350,
+              "y": 450,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "scale": {
+              "x": 1,
+              "y": 1,
+              "z": 1
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
